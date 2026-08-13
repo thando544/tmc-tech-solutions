@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Poppins } from "next/font/google";
 import { QueryProvider } from "@/components/query/query-provider";
 import { company } from "@/content/site";
@@ -39,12 +40,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true
+  },
+  other: {
+    "google-adsense-account": "ca-pub-5531660508195606"
   }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+      <head>
+        <Script
+          id="adsense-init"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5531660508195606"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body>
         <QueryProvider>{children}</QueryProvider>
       </body>
