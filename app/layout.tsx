@@ -40,9 +40,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true
-  },
-  other: {
-    "google-adsense-account": "ca-pub-5531660508195606"
   }
 };
 
@@ -50,6 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-5531660508195606" />
         <Script
           id="adsense-init"
           async
