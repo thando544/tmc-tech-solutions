@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    const agentLinks = [
+      '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+      '</openapi.json>; rel="service-desc"; type="application/json"',
+      '</docs/api>; rel="service-doc"; type="text/html"',
+      '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"'
+    ].join(", ");
+
     return [
       {
         source: "/(.*)",
@@ -39,6 +46,10 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" }
         ]
+      },
+      {
+        source: "/",
+        headers: [{ key: "Link", value: agentLinks }]
       }
     ];
   }

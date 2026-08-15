@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Poppins } from "next/font/google";
 import { QueryProvider } from "@/components/query/query-provider";
+import { WebMcpProvider } from "@/components/webmcp-provider";
 import { company } from "@/content/site";
 import "./globals.css";
 
@@ -57,7 +58,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <WebMcpProvider />
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
