@@ -1,11 +1,32 @@
-; DNS for AI Discovery (DNS-AID)
-; Add these records at your DNS provider for tmctechsolutions.com
-; Enable DNSSEC on the zone so validating resolvers return authenticated data.
+; DNS for AI Discovery (DNS-AID) — RFC 9460 ServiceMode SVCB/HTTPS
+;
+; Hostinger DNS (ns1.dns-parking.com) cannot publish HTTPS/SVCB records.
+; Point nameservers to Cloudflare (or another provider with HTTPS + DNSSEC),
+; then add the records below and enable DNSSEC.
+;
+; Cloudflare DNS → Create record:
+;   Type HTTPS | Name _index._agents | Priority 1 | Target tmctechsolutions.com
+;     alpn h2,h3  port 443
+;   Type SVCB  | Name _a2a._agents   | Priority 1 | Target tmctechsolutions.com
+;     alpn a2a,h2  port 443  mandatory alpn,port
+;   Type HTTPS | Name _mcp._agents   | Priority 1 | Target tmctechsolutions.com
+;     alpn h2,h3  port 443
+;
+; Experimental endpoint locators use key65001 until IANA registration.
 
-_index._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. alpn="h2,h3" port=443
-_a2a._agents.tmctechsolutions.com. 3600 IN SVCB 1 tmctechsolutions.com. alpn="a2a,h2" port=443 mandatory=alpn,port
-_mcp._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. alpn="h2,h3" port=443
+_index._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. (
+  alpn="h2,h3" port=443
+  key65001="endpoint=https://www.tmctechsolutions.com/.well-known/agent-skills/index.json"
+)
+_a2a._agents.tmctechsolutions.com. 3600 IN SVCB 1 tmctechsolutions.com. (
+  alpn="a2a,h2" port=443 mandatory=alpn,port
+  key65001="endpoint=https://www.tmctechsolutions.com/mcp"
+)
+_mcp._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. (
+  alpn="h2,h3" port=443
+  key65001="endpoint=https://www.tmctechsolutions.com/mcp"
+)
 
-_index._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/.well-known/agent-skills/index.json"
-_a2a._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/mcp"
-_mcp._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/mcp"
+_index._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://www.tmctechsolutions.com/.well-known/agent-skills/index.json"
+_a2a._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://www.tmctechsolutions.com/mcp"
+_mcp._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://www.tmctechsolutions.com/mcp"

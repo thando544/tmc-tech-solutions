@@ -1,10 +1,10 @@
 import { company } from "@/content/site";
 import { agentAuthMetadata } from "@/lib/agent/oauth";
-import { getSiteUrl } from "@/lib/agent/site";
+import { originFromRequest } from "@/lib/agent/site";
 
-export function GET() {
-  const site = getSiteUrl();
-  const agentAuth = JSON.stringify(agentAuthMetadata(), null, 2);
+export function GET(request: Request) {
+  const site = originFromRequest(request);
+  const agentAuth = JSON.stringify(agentAuthMetadata(site), null, 2);
   const body = `# auth.md
 
 This document describes how AI agents register and authenticate with ${company.name}.
@@ -13,15 +13,32 @@ This document describes how AI agents register and authenticate with ${company.n
 
 Software agents that need to call public TMC Tech Solutions APIs or MCP tools.
 
-## Registration
+## Step 1 — Discover
 
-Agents may register by posting JSON to \`${site}/api/agent/register\`.
+1. GET ${site}/.well-known/oauth-protected-resource
+2. GET ${site}/.well-known/oauth-authorization-server and read the agent_auth block.
 
-Supported methods:
+## Step 2 — Pick a method
 
-- anonymous (API key claim)
-- verified_email
-- identity_assertion (ID-JAG)
+Supported identity_types_supported: anonymous, identity_assertion (ID-JAG and verified_email).
+
+## Step 3 — Register
+
+POST JSON to ${site}/agent/identity (also advertised as register_uri and identity_endpoint).
+
+## Step 4 — Claim
+
+Anonymous credentials are claimed at ${site}/agent/identity/claim.
+
+## Step 5 — Exchange the assertion
+
+POST ${site}/oauth2/token with grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer.
+
+## Step 6 — Use the access_token
+
+Send Authorization: Bearer <token> for protected portal APIs.
+
+Public marketing APIs (/api/contact, /api/health, /mcp catalog tools) do not require a token.
 
 ## agent_auth
 
@@ -29,25 +46,14 @@ Supported methods:
 ${agentAuth}
 \`\`\`
 
-register_uri: ${site}/api/agent/register
-claim_uri: ${site}/api/agent/claim
-revocation_uri: ${site}/api/agent/revoke
-identity_types_supported: anonymous, identity_assertion
-credential_types_supported: api_key, oauth_access_token
+## Errors
 
-## Protected resource
+Standard OAuth error codes apply (invalid_request, invalid_grant, unsupported_grant_type, unauthorized_client).
 
-OAuth Protected Resource Metadata: ${site}/.well-known/oauth-protected-resource
+## Revocation
 
-Authorization server metadata: ${site}/.well-known/oauth-authorization-server
-
-OpenID configuration: ${site}/.well-known/openid-configuration
-
-## Credential use
-
-Send a Bearer token in the \`Authorization\` header for protected portal APIs.
-
-Public marketing APIs (\`/api/contact\`, \`/api/health\`, \`/mcp\` tools for catalog data) do not require a token.
+Credential layer: POST ${site}/oauth2/revoke
+Registration layer: POST ${site}/agent/event/notify (Security Event Tokens)
 
 ## Human contact
 

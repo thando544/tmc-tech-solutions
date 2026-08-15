@@ -5,7 +5,28 @@ export function getSiteUrl() {
   if (!raw || raw.includes("localhost") || raw.startsWith("http://")) {
     return company.domain;
   }
+  try {
+    const url = new URL(raw);
+    if (url.hostname === "tmctechsolutions.com") {
+      return "https://www.tmctechsolutions.com";
+    }
+  } catch {
+    return company.domain;
+  }
   return raw;
+}
+
+export function originFromRequest(request?: Request) {
+  if (!request) {
+    return getSiteUrl();
+  }
+
+  const url = new URL(request.url);
+  if (url.hostname === "localhost" || url.hostname === "127.0.0.1") {
+    return getSiteUrl();
+  }
+
+  return `${url.protocol}//${url.host}`.replace(/\/$/, "");
 }
 
 export const PUBLIC_PATHS = ["/", "/about", "/services", "/contact", "/docs/api", "/auth.md"] as const;

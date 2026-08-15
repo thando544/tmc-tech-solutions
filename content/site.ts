@@ -13,7 +13,7 @@ import {
 
 export const company = {
   name: "TMC Tech Solutions",
-  domain: "https://tmctechsolutions.com",
+  domain: "https://www.tmctechsolutions.com",
   email: "info@tmctechsolutions.com",
   tagline: "Building Smarter Businesses with AI & Modern Technology",
   mission:

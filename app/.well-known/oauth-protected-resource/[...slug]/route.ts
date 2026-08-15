@@ -6,6 +6,5 @@ export function OPTIONS() {
 }
 
 export function GET(request: Request) {
-  const site = originFromRequest(request);
-  return jsonDiscovery(oauthProtectedResourceMetadata(site));
+  return jsonDiscovery(oauthProtectedResourceMetadata(originFromRequest(request)));
 }

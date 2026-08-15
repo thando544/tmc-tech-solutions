@@ -11,6 +11,19 @@ const nextConfig: NextConfig = {
       }
     ]
   },
+  skipTrailingSlashRedirect: true,
+  async rewrites() {
+    return [
+      { source: "/agent/identity", destination: "/api/agent/register" },
+      { source: "/agent/identity/claim", destination: "/api/agent/claim" },
+      { source: "/agent/event/notify", destination: "/api/agent/revoke" },
+      { source: "/agent/auth", destination: "/api/agent/register" },
+      { source: "/agent/auth/claim", destination: "/api/agent/claim" },
+      { source: "/agent/auth/revoke", destination: "/api/agent/revoke" },
+      { source: "/oauth2/token", destination: "/api/oauth/token" },
+      { source: "/oauth2/revoke", destination: "/api/agent/revoke" }
+    ];
+  },
   async redirects() {
     return [
       { source: "/hosting", destination: "/services", permanent: false },
