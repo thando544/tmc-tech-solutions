@@ -1,0 +1,11 @@
+; DNS for AI Discovery (DNS-AID)
+; Add these records at your DNS provider for tmctechsolutions.com
+; Enable DNSSEC on the zone so validating resolvers return authenticated data.
+
+_index._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. alpn="h2,h3" port=443
+_a2a._agents.tmctechsolutions.com. 3600 IN SVCB 1 tmctechsolutions.com. alpn="a2a,h2" port=443 mandatory=alpn,port
+_mcp._agents.tmctechsolutions.com. 3600 IN HTTPS 1 tmctechsolutions.com. alpn="h2,h3" port=443
+
+_index._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/.well-known/agent-skills/index.json"
+_a2a._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/mcp"
+_mcp._agents.tmctechsolutions.com. 3600 IN TXT "endpoint=https://tmctechsolutions.com/mcp"

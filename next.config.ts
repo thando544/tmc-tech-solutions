@@ -34,6 +34,8 @@ const nextConfig: NextConfig = {
       '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
       '</openapi.json>; rel="service-desc"; type="application/json"',
       '</docs/api>; rel="service-doc"; type="text/html"',
+      '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json"',
+      '</.well-known/oauth-authorization-server>; rel="oauth-authorization-server"; type="application/json"',
       '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"'
     ].join(", ");
 

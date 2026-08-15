@@ -1,10 +1,10 @@
 import { oauthAuthorizationServerMetadata } from "@/lib/agent/oauth";
+import { jsonDiscovery, jsonDiscoveryOptions } from "@/lib/agent/site";
+
+export function OPTIONS() {
+  return jsonDiscoveryOptions();
+}
 
 export function GET() {
-  return Response.json(oauthAuthorizationServerMetadata(), {
-    headers: {
-      "Cache-Control": "public, max-age=300",
-      "Access-Control-Allow-Origin": "*"
-    }
-  });
+  return jsonDiscovery(oauthAuthorizationServerMetadata());
 }
