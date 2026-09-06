@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "onDark";
+type Variant = "primary" | "secondary" | "ghost" | "onDark" | "onPhoto" | "onPhotoGhost";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -10,7 +10,9 @@ const variants: Record<Variant, string> = {
     "border border-slate-300 bg-white text-slate-900 hover:border-brand hover:text-brand-strong",
   ghost: "text-slate-800 hover:bg-secondary-background hover:text-foreground",
   onDark:
-    "border border-white/20 bg-brand text-white shadow-lg shadow-blue-950/40 hover:bg-brand-strong hover:border-white/30"
+    "border border-white/20 bg-brand text-white shadow-lg shadow-blue-950/40 hover:bg-brand-strong hover:border-white/30",
+  onPhoto: "bg-white text-navy hover:bg-white/90",
+  onPhotoGhost: "border border-white/45 bg-transparent text-white hover:bg-white/10"
 };
 
 export function CTAButton({
