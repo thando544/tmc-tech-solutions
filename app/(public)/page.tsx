@@ -75,7 +75,7 @@ export default function HomePage() {
         <div className="relative h-[52vw] min-h-[280px] max-h-[640px] w-full">
           <Image
             src="/images/victoria-falls-hero.jpg"
-            alt="Victoria Falls, Zimbabwe — TMC Tech Solutions is based here"
+            alt="Victoria Falls from the Zimbabwean side, Mosi-oa-Tunya"
             fill
             priority
             sizes="100vw"
@@ -142,7 +142,7 @@ export default function HomePage() {
           <div className="relative min-h-[320px] lg:min-h-[560px]">
             <Image
               src="/images/victoria-falls-gorge.jpg"
-              alt="The Zambezi gorge below Victoria Falls"
+              alt="Victoria Falls seen from the rainforest trail on the Zimbabwean side"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-center"
@@ -219,7 +219,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-navy">
         <Image
           src="/images/victoria-falls-rainbow.jpg"
-          alt=""
+          alt="Rainbow over Victoria Falls from the walkway"
           fill
           sizes="100vw"
           className="object-cover opacity-35"

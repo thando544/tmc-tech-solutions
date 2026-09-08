@@ -4,9 +4,9 @@ import { getSiteUrl } from "@/lib/agent/site";
 
 const image = {
   url: "/images/victoria-falls-hero.jpg",
-  width: 1600,
-  height: 900,
-  alt: "Victoria Falls, Zimbabwe"
+  width: 2400,
+  height: 1800,
+  alt: "Victoria Falls from the Zimbabwean side"
 };
 
 export function pageMeta({

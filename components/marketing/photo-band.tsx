@@ -60,7 +60,7 @@ export function PageHero({
   description: string;
 }) {
   return (
-    <PhotoHero src="/images/victoria-falls-gorge.jpg" alt="Victoria Falls gorge and walking path, Zimbabwe">
+    <PhotoHero src="/images/victoria-falls-gorge.jpg" alt="Victoria Falls seen from the rainforest trail, Zimbabwe">
       <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-white/70 uppercase">{eyebrow}</p>
       <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
         {title}

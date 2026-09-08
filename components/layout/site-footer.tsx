@@ -82,6 +82,10 @@ export function SiteFooter() {
             ))}
           </div>
         </div>
+        <p className="mt-6 max-w-3xl text-xs leading-6 text-white/35">
+          Photographs of Victoria Falls from Wikimedia Commons: Stiac H (CC0); John Walker (public domain); Saraessop
+          (CC BY-SA 4.0).
+        </p>
       </Container>
     </footer>
   );

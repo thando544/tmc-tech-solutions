@@ -29,7 +29,7 @@ export default function TourismPage() {
       <section className="relative h-60 border-b border-border md:h-95">
         <Image
           src="/images/victoria-falls-rainbow.jpg"
-          alt="Rainbow over Victoria Falls — tourism systems for operators selling this landscape"
+          alt="Rainbow over Victoria Falls from the walkway"
           fill
           sizes="100vw"
           className="object-cover object-[center_35%]"
