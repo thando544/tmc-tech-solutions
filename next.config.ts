@@ -34,6 +34,7 @@ const nextConfig: NextConfig = {
       { source: "/domains", destination: "/services", permanent: false },
       { source: "/ssl", destination: "/services", permanent: false },
       { source: "/pricing", destination: "/services", permanent: false },
+      { source: "/signup", destination: "/contact", permanent: false },
       { source: "/cart", destination: "/contact", permanent: false },
       { source: "/checkout", destination: "/contact", permanent: false },
       { source: "/mobile-app-development", destination: "/services", permanent: false },

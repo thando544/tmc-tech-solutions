@@ -3,7 +3,7 @@ import { getSiteUrl } from "@/lib/agent/site";
 
 export const CONTACT_SKILL_MD = `# Contact TMC Tech Solutions
 
-Help an agent contact TMC Tech Solutions about AI, software, automation, or cloud work.
+Help an agent contact TMC Tech Solutions about websites, payment gateways, SEO, GEO, or tourism systems.
 
 ## When to use
 
@@ -39,16 +39,11 @@ Use this skill when a user asks what TMC Tech Solutions builds or which engageme
 
 ## Services
 
-- AI Solutions
-- AI Automation
-- Custom Software Development
-- Mobile App Development
-- Web Development
-- Cloud Solutions
-- Business Automation
-- API Integrations
-- IT Consulting
-- Technical Support
+- Website packages (Presence, Business, Bookings & payments, Custom)
+- Payment gateway integration (Paynow, Stripe, PayPal, Flutterwave, PayFast)
+- SEO setup, GEO setup, speed optimisation, WordPress migration
+- AI integration into existing workflows (not content creation)
+- Tourism systems (booking, quotes, activities, agents, transfers)
 
 Canonical page: https://tmctechsolutions.com/services
 
@@ -74,7 +69,7 @@ export function agentSkillsIndex() {
     {
       name: "tmc-services",
       type: "skill-md" as const,
-      description: "Catalog of TMC Tech Solutions AI, software, and automation services.",
+      description: "Catalog of TMC Tech Solutions websites, payments, SEO, GEO, and tourism systems.",
       path: "/.well-known/agent-skills/services/SKILL.md",
       content: SERVICES_SKILL_MD
     }

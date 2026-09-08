@@ -1,85 +1,82 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { Container } from "@/components/marketing/container";
-import { company, navLinks, socialLinks } from "@/content/site";
+import { company, navLinks } from "@/content/site";
 
 const footerColumns = [
   {
     title: "Company",
     links: [
       { href: "/about", label: "About" },
-      { href: "/services", label: "Services" },
+      { href: "/book", label: "Book / pay a deposit" },
       { href: "/contact", label: "Contact" }
     ]
   },
   {
-    title: "Services",
+    title: "Work",
     links: [
-      { href: "/services#ai-solutions", label: "AI Solutions" },
-      { href: "/services#custom-software", label: "Custom Software" },
-      { href: "/services#cloud-solutions", label: "Cloud Solutions" },
-      { href: "/services#business-automation", label: "Automation" }
+      { href: "/services#websites", label: "Websites" },
+      { href: "/services#payments", label: "Payments" },
+      { href: "/services#setup", label: "SEO, GEO & speed" },
+      { href: "/tourism", label: "Tourism systems" },
+      { href: "https://www.masukusafaris.com", label: "Masuku Safaris" },
+      { href: "https://awandeafricanexpeditions.com", label: "Awande Expeditions" }
     ]
   },
   {
-    title: "Connect",
+    title: "Legal",
     links: [
-      { href: "/contact", label: "Contact" },
-      { href: `mailto:${company.email}`, label: "Email us" },
-      { href: socialLinks[0]?.href ?? "https://www.youtube.com/", label: "YouTube" }
+      { href: "/privacy", label: "Privacy policy" },
+      { href: "/cookies", label: "Cookies" },
+      { href: "/terms", label: "Terms" }
     ]
   }
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-slate-800 bg-navy text-white">
-      <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
+    <footer className="bg-navy text-white">
+      <Container className="py-14">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr]">
           <div>
             <Logo onDark />
-            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-300">{company.tagline}</p>
-            <p className="mt-4 text-sm text-slate-300">
-              <a href={`mailto:${company.email}`} className="font-medium text-white transition hover:text-blue-300">
-                {company.email}
-              </a>
-            </p>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm">
-              {socialLinks.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-slate-200 underline-offset-4 transition hover:text-white hover:underline"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
+            <p className="mt-5 max-w-sm text-sm leading-7 text-white/70">{company.tagline}</p>
+            <p className="mt-4 text-sm text-white/55">{company.location}</p>
+            <a href={`mailto:${company.email}`} className="mt-2 inline-block text-sm text-white hover:text-brand">
+              {company.email}
+            </a>
           </div>
           <div className="grid gap-8 sm:grid-cols-3">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <p className="text-sm font-semibold text-white">{column.title}</p>
-                <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
-                  {column.links.map((link) => (
-                    <li key={link.href + link.label}>
-                      <Link href={link.href} className="transition hover:text-white">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
+                <p className="text-xs font-bold tracking-[0.16em] text-white uppercase">{column.title}</p>
+                <ul className="mt-4 space-y-2.5 text-sm text-white/65">
+                  {column.links.map((link) => {
+                    const external = link.href.startsWith("http");
+                    return (
+                      <li key={link.href + link.label}>
+                        <Link
+                          href={link.href}
+                          className="hover:text-white"
+                          {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
           </div>
         </div>
-        <div className="mt-14 flex flex-col gap-3 border-t border-slate-800 pt-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {company.name}
+          </p>
           <div className="flex flex-wrap gap-5">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-slate-300 transition hover:text-white">
+              <Link key={link.href} href={link.href} className="hover:text-white">
                 {link.label}
               </Link>
             ))}

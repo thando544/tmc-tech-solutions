@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { budgetBands, contactInterests } from "@/content/site";
 
 export function MarketingContactForm() {
   const [status, setStatus] = useState<string | null>(null);
@@ -13,7 +14,7 @@ export function MarketingContactForm() {
 
   return (
     <form
-      className="space-y-5 rounded-2xl border border-border bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] md:p-8"
+      className="space-y-5 border border-border bg-white p-6 md:p-8"
       onSubmit={(event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -27,52 +28,74 @@ export function MarketingContactForm() {
             headers: { "Content-Type": "application/json" }
           });
           if (response.ok) {
-            setStatus("Message received. We’ll get back to you soon.");
+            setStatus("Brief received. We will reply within one working day.");
             form.reset();
           } else {
-            setError("Unable to send message. Please email us directly.");
+            setError("Unable to send. Email info@tmctechsolutions.com directly.");
           }
         });
       }}
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-slate-800">
-            Name
-          </Label>
-          <Input id="name" name="name" autoComplete="name" required className="rounded-xl border-slate-200 bg-white text-foreground" />
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" name="name" autoComplete="name" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-slate-800">
-            Email
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            className="rounded-xl border-slate-200 bg-white text-foreground"
-          />
+          <Label htmlFor="email">Email</Label>
+          <Input id="email" name="email" type="email" autoComplete="email" required />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message" className="text-slate-800">
-          How can we help?
-        </Label>
+        <Label htmlFor="company">Business</Label>
+        <Input id="company" name="company" autoComplete="organization" />
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="interest">What do you need</Label>
+          <select
+            id="interest"
+            name="interest"
+            className="focus-ring h-11 w-full border border-border bg-white px-3 text-sm text-foreground"
+            defaultValue="New website"
+          >
+            {contactInterests.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="budget">Budget</Label>
+          <select
+            id="budget"
+            name="budget"
+            className="focus-ring h-11 w-full border border-border bg-white px-3 text-sm text-foreground"
+            defaultValue="Not sure yet"
+          >
+            {budgetBands.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message">Brief</Label>
         <Textarea
           id="message"
           name="message"
           required
           rows={6}
-          className="rounded-xl border-slate-200 bg-white text-foreground"
-          placeholder="Tell us about your project, product idea, or automation goals."
+          placeholder="Live URL if you have one, what you sell, and how guests pay today."
         />
       </div>
       {status ? <p className="text-sm font-medium text-success">{status}</p> : null}
       {error ? <p className="text-sm font-medium text-error">{error}</p> : null}
-      <Button type="submit" className="w-full text-white sm:w-auto" disabled={isPending}>
-        {isPending ? "Sending..." : "Send message"}
+      <Button type="submit" variant="cta" className="w-full sm:w-auto" disabled={isPending}>
+        {isPending ? "Sending..." : "Send brief"}
       </Button>
     </form>
   );

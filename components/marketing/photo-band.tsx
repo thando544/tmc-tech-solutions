@@ -22,7 +22,7 @@ export function PhotoHero({
         className="object-cover object-[center_40%]"
       />
       <div className="absolute inset-0 bg-navy/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/25 to-navy/20" />
+      <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-navy/25 to-navy/20" />
       <Container className="relative z-10 w-full">{children}</Container>
     </section>
   );

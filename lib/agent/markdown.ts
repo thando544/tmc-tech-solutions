@@ -1,4 +1,4 @@
-import { company, services, values, whyChooseUs } from "@/content/site";
+import { company, setupPackages, tourismProducts, values, websitePackages, whyChooseUs } from "@/content/site";
 
 export function markdownForPath(pathname: string): string | null {
   if (pathname === "/") {
@@ -8,8 +8,8 @@ ${company.tagline}
 
 ${company.mission}
 
-## Services
-${services.map((service) => `- **${service.title}**: ${service.description}`).join("\n")}
+## Website packages
+${websitePackages.map((item) => `- **${item.name}** (${item.price}): ${item.summary}`).join("\n")}
 
 ## Why TMC
 ${whyChooseUs.map((item) => `- **${item.title}**: ${item.text}`).join("\n")}
@@ -37,16 +37,18 @@ ${values.map((value) => `- **${value.title}**: ${value.text}`).join("\n")}
   if (pathname === "/services") {
     return `# Services
 
-${services
-  .map(
-    (service) => `## ${service.title}
+## Websites
+${websitePackages.map((item) => `### ${item.name} — ${item.price}\n\n${item.summary}\n`).join("\n")}
 
-${service.description}
+## Setup
+${setupPackages.map((item) => `### ${item.name} — ${item.price}\n\n${item.detail}\n`).join("\n")}
+`;
+  }
 
-Benefits: ${service.benefits.join(", ")}
-`
-  )
-  .join("\n")}
+  if (pathname === "/tourism") {
+    return `# Tourism systems
+
+${tourismProducts.map((item) => `### ${item.name} — ${item.price}\n\n${item.detail}\n`).join("\n")}
 `;
   }
 
@@ -55,8 +57,34 @@ Benefits: ${service.benefits.join(", ")}
 
 Email: ${company.email}
 Location: ${company.location}
+${company.responseTime}
 
-Send a project brief via POST /api/contact with JSON: \`{ "name", "email", "message" }\`.
+Send a project brief via POST /api/contact with JSON: \`{ "name", "email", "message" }\`. Optional: company, interest, budget.
+
+You do not need an account to enquire. Login is for the TMC team only.
+`;
+  }
+
+  if (pathname === "/privacy") {
+    return `# Privacy policy
+
+${company.name}, ${company.location}. Contact ${company.email}.
+
+We collect enquiry details (name, email, business, brief) to quote and deliver work. We do not store card numbers. We do not sell lists. Full policy: ${company.domain}/privacy
+`;
+  }
+
+  if (pathname === "/cookies") {
+    return `# Cookie policy
+
+Essential cookies run the site. tmc-cookie-consent stores your banner choice. We do not use advertising cookies. Full policy: ${company.domain}/cookies
+`;
+  }
+
+  if (pathname === "/terms") {
+    return `# Terms
+
+Quotes on ${company.domain} are starting prices in USD. A written quote is the offer. Full terms: ${company.domain}/terms
 `;
   }
 

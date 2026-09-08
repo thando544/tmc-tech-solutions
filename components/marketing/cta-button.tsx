@@ -4,15 +4,12 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "secondary" | "ghost" | "onDark" | "onPhoto" | "onPhotoGhost";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-brand text-white shadow-sm shadow-blue-600/25 hover:bg-brand-strong hover:shadow-md hover:shadow-blue-600/30",
-  secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-brand hover:text-brand-strong",
-  ghost: "text-slate-800 hover:bg-secondary-background hover:text-foreground",
-  onDark:
-    "border border-white/20 bg-brand text-white shadow-lg shadow-blue-950/40 hover:bg-brand-strong hover:border-white/30",
-  onPhoto: "bg-white text-navy hover:bg-white/90",
-  onPhotoGhost: "border border-white/45 bg-transparent text-white hover:bg-white/10"
+  primary: "bg-brand text-white hover:bg-brand-strong",
+  secondary: "border border-foreground bg-white text-foreground hover:bg-secondary-background",
+  ghost: "text-foreground hover:bg-secondary-background",
+  onDark: "bg-brand text-white hover:bg-brand-strong",
+  onPhoto: "bg-brand text-white hover:bg-brand-strong",
+  onPhotoGhost: "border border-white text-white hover:bg-white hover:text-foreground"
 };
 
 export function CTAButton({
@@ -32,7 +29,7 @@ export function CTAButton({
     <Link
       href={href}
       className={cn(
-        "focus-ring inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition duration-200",
+        "focus-ring inline-flex items-center justify-center gap-2 font-semibold transition duration-150",
         size === "sm" && "h-9 px-3.5 text-sm",
         size === "md" && "h-11 px-5 text-sm",
         size === "lg" && "h-12 px-6 text-base",

@@ -1,20 +1,35 @@
 import Link from "next/link";
-import Image from "next/image";
+import { LogoMark } from "@/components/layout/logo-mark";
 import { cn } from "@/lib/utils";
 
-const logoUrl = "https://res.cloudinary.com/dnqjax5ut/image/upload/v1779049221/tmctechsolutions_oc321y.png";
-
-export function Logo({ onDark = false }: { onDark?: boolean }) {
+export function Logo({
+  onDark = false,
+  compact = false
+}: {
+  compact?: boolean;
+  onDark?: boolean;
+}) {
   return (
-    <Link href="/" className="inline-flex items-center" aria-label="TMC Tech Solutions home">
-      <Image
-        src={logoUrl}
-        alt="TMC Tech Solutions"
-        width={180}
-        height={44}
-        priority
-        className={cn("h-10 w-auto object-contain", onDark && "brightness-0 invert")}
-      />
+    <Link href="/" className="inline-flex items-center gap-3" aria-label="TMC Tech Solutions home">
+      <LogoMark className={cn("h-9 w-9 md:h-10 md:w-10", compact && "h-8 w-8 md:h-9 md:w-9")} />
+      <span className="hidden leading-none sm:block">
+        <span
+          className={cn(
+            "block font-logo text-[15px] font-bold tracking-[0.04em]",
+            onDark ? "text-white" : "text-foreground"
+          )}
+        >
+          TMC
+        </span>
+        <span
+          className={cn(
+            "mt-1 block font-logo text-[10px] font-semibold tracking-[0.14em]",
+            onDark ? "text-white/70" : "text-brand"
+          )}
+        >
+          Tech Solutions
+        </span>
+      </span>
     </Link>
   );
 }

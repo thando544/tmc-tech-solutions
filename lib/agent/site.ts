@@ -29,7 +29,19 @@ export function originFromRequest(request?: Request) {
   return `${url.protocol}//${url.host}`.replace(/\/$/, "");
 }
 
-export const PUBLIC_PATHS = ["/", "/about", "/services", "/contact", "/docs/api", "/auth.md"] as const;
+export const PUBLIC_PATHS = [
+  "/",
+  "/about",
+  "/services",
+  "/tourism",
+  "/book",
+  "/contact",
+  "/privacy",
+  "/cookies",
+  "/terms",
+  "/docs/api",
+  "/auth.md"
+] as const;
 
 export const AGENT_LINK_HEADERS = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',

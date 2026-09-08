@@ -10,6 +10,11 @@ Allow: /
 Allow: /about
 Allow: /services
 Allow: /contact
+Allow: /tourism
+Allow: /book
+Allow: /privacy
+Allow: /cookies
+Allow: /terms
 Allow: /docs/
 Allow: /openapi.json
 Allow: /sitemap.xml
@@ -23,6 +28,7 @@ Disallow: /signup
 Disallow: /api/
 Allow: /api/health
 Allow: /api/contact
+Disallow: /book/return
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: GPTBot

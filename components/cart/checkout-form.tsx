@@ -188,9 +188,11 @@ export function CheckoutForm({ mode = "public" }: { mode?: "public" | "portal" }
           <Button className="mt-6 w-full" variant="cta" disabled={isPending}>
             {isPending ? "Starting checkout..." : "Pay securely"}
           </Button>
-          {mode === "public" ? <Button asChild className="mt-3 w-full" variant="secondary">
-            <Link href="/signup">Create account</Link>
-          </Button> : null}
+          {mode === "public" ? (
+            <Button asChild className="mt-3 w-full" variant="secondary">
+              <Link href="/contact">Request a quote instead</Link>
+            </Button>
+          ) : null}
         </CardContent>
       </Card>
     </form>

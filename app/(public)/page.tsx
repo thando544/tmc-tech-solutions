@@ -1,169 +1,242 @@
-import { ArrowRight, Check } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { CTAButton } from "@/components/marketing/cta-button";
-import { GlassCard } from "@/components/marketing/glass-card";
-import { HeroVisual } from "@/components/marketing/hero-visual";
-import { FadeIn, Stagger, StaggerItem } from "@/components/marketing/motion";
-import { Section, SectionHeader } from "@/components/marketing/section";
+import { ClientsSection } from "@/components/marketing/clients-section";
 import { Container } from "@/components/marketing/container";
-import { company, services, techStack, testimonials, trustedBy, whyChooseUs } from "@/content/site";
+import { Section } from "@/components/marketing/section";
+import { company, processSteps, websitePackages } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Websites, payments, and tourism systems",
+  description: company.mission
+};
+
+const practices = [
+  {
+    href: "/services#websites",
+    index: "01",
+    title: "Websites",
+    text: "A site that looks like the business, loads fast, and can be updated without calling us every week.",
+    price: "From $2,400"
+  },
+  {
+    href: "/services#payments",
+    index: "02",
+    title: "Payments",
+    text: "Stripe and PayPal for overseas guests. Paynow, Flutterwave, and PayFast where local rails matter. Wired into the booking — not a plugin screenshot.",
+    price: "From $1,200"
+  },
+  {
+    href: "/tourism",
+    index: "03",
+    title: "Tourism systems",
+    text: "Lodge calendars, tour quotes, activity desks, agent commissions, and transfers for operators who sell this landscape.",
+    price: "From $5,400"
+  }
+] as const;
+
+const facts = [
+  { label: "Invoices", value: "USD" },
+  { label: "Reply", value: "One working day" },
+  { label: "Hours", value: "UK, EU, US, Africa" },
+  { label: "Studio", value: "Victoria Falls" }
+] as const;
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden pb-16 pt-10 md:pb-24 md:pt-16">
-        <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
-        <Container className="relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <FadeIn>
-              <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-brand uppercase">TMC Tech Solutions</p>
-              <h1 className="max-w-xl font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                {company.tagline}
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-muted">{company.mission}</p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <CTAButton href="/contact" size="lg">
-                  Start a project <ArrowRight className="h-4 w-4" aria-hidden />
-                </CTAButton>
-                <CTAButton href="/services" variant="secondary" size="lg">
-                  Explore services
-                </CTAButton>
-              </div>
-            </FadeIn>
+      <section className="bg-white">
+        <Container className="pt-16 pb-12 md:pt-24 md:pb-16 lg:pt-28">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand uppercase">
+            {company.location}
+          </p>
+          <h1 className="mt-5 max-w-4xl text-[2.35rem] leading-[1.08] font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+            Websites that take bookings.
+            <span className="mt-1 block text-brand">Systems that get you paid.</span>
+          </h1>
+          <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">
+            We design and build the site, connect the gateway, and ship the tourism system — for lodges, operators, and
+            companies that sell to guests from anywhere.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <CTAButton href="/contact" size="lg">
+              Request a quote <ArrowRight className="h-4 w-4" aria-hidden />
+            </CTAButton>
+            <CTAButton href="/services" variant="secondary" size="lg">
+              Starting prices
+            </CTAButton>
           </div>
-          <FadeIn delay={0.12} className="lg:justify-self-end">
-            <HeroVisual />
-          </FadeIn>
+        </Container>
+
+        <div className="relative h-[52vw] min-h-[280px] max-h-[640px] w-full">
+          <Image
+            src="/images/victoria-falls-hero.jpg"
+            alt="Victoria Falls, Zimbabwe — TMC Tech Solutions is based here"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_38%]"
+          />
+        </div>
+        <Container>
+          <p className="border-b border-border py-4 text-sm text-muted">
+            Victoria Falls, Zimbabwe. Invoices in USD. The work is written so a buyer in the UK or EU can sign it
+            without visiting first.
+          </p>
         </Container>
       </section>
 
-      <Section muted className="!py-12">
-        <FadeIn>
-          <p className="text-center text-sm font-medium tracking-[0.14em] text-muted uppercase">
-            Trusted by teams building the future
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {trustedBy.map((item) => (
-              <span key={item} className="font-heading text-lg font-semibold text-slate-500">
-                {item}
-              </span>
+      <section className="border-b border-border bg-white">
+        <Container>
+          <dl className="grid grid-cols-2 divide-border md:grid-cols-4 md:divide-x">
+            {facts.map((fact) => (
+              <div key={fact.label} className="py-8 md:px-8 md:first:pl-0 md:last:pr-0">
+                <dt className="text-[11px] font-semibold tracking-[0.16em] text-muted uppercase">{fact.label}</dt>
+                <dd className="mt-2 text-base font-semibold">{fact.value}</dd>
+              </div>
             ))}
+          </dl>
+        </Container>
+      </section>
+
+      <ClientsSection />
+
+      <Section className="py-20 md:py-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Practice</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Three things, done end to end</h2>
           </div>
-        </FadeIn>
+          <p className="max-w-sm text-sm leading-7 text-muted">
+            Not content creation. Not a chatbot demo. The site, the rails, and the operations behind a booking.
+          </p>
+        </div>
+        <ul className="mt-14">
+          {practices.map((item) => (
+            <li key={item.href} className="border-t border-border last:border-b">
+              <Link
+                href={item.href}
+                className="group grid gap-4 py-8 md:grid-cols-[4.5rem_1fr_auto] md:items-baseline md:gap-10 md:py-10"
+              >
+                <span className="font-logo text-sm font-semibold tracking-[0.12em] text-brand">{item.index}</span>
+                <span>
+                  <span className="block text-2xl font-bold tracking-tight md:text-3xl">{item.title}</span>
+                  <span className="mt-3 block max-w-xl text-sm leading-7 text-muted">{item.text}</span>
+                </span>
+                <span className="flex items-center gap-2 text-sm font-semibold text-foreground md:justify-end">
+                  {item.price}
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
 
-      <Section>
-        <SectionHeader
-          eyebrow="Services"
-          title="Capabilities that move businesses forward"
-          description="From AI systems to custom software and cloud architecture — we design and ship what modern companies need."
-        />
-        <Stagger className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {services.slice(0, 6).map((service) => {
-            const Icon = service.icon;
+      <section className="bg-secondary-background">
+        <div className="grid lg:grid-cols-2">
+          <div className="relative min-h-[320px] lg:min-h-[560px]">
+            <Image
+              src="/images/victoria-falls-gorge.jpg"
+              alt="The Zambezi gorge below Victoria Falls"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="flex items-center">
+            <div className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Position</p>
+              <h2 className="mt-3 max-w-md text-3xl font-bold tracking-tight md:text-4xl">
+                Priced like a firm. Based at the Falls. Built for worldwide buyers.
+              </h2>
+              <p className="mt-5 max-w-md text-base leading-8 text-muted">
+                Cheap WordPress sites get rebuilt in eighteen months. We publish real starting prices so a serious
+                buyer can plan. SEO and GEO are setup work, not a blog package. Payments are wired into the booking.
+              </p>
+              <div className="mt-8">
+                <CTAButton href="/about" variant="secondary">
+                  About the studio
+                </CTAButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Section className="py-20 md:py-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-xl">
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Fees</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Website catalogue, in USD</h2>
+          </div>
+          <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-brand">
+            Full services and prices <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+        <ul className="mt-12 border-t border-border">
+          {websitePackages.map((item) => {
+            const featured = "featured" in item && item.featured;
             return (
-              <StaggerItem key={service.slug}>
-                <GlassCard className="h-full">
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-foreground">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{service.description}</p>
-                </GlassCard>
-              </StaggerItem>
+              <li
+                key={item.slug}
+                className="grid gap-2 border-b border-border py-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)_auto] md:items-baseline md:gap-8"
+              >
+                <div>
+                  <p className="text-lg font-bold">{item.name}</p>
+                  <p className="mt-1 text-xs font-semibold tracking-[0.12em] text-brand uppercase">
+                    {featured ? "Most briefs · " : ""}
+                    {item.timeline}
+                  </p>
+                </div>
+                <p className="text-sm leading-7 text-muted">{item.summary}</p>
+                <p className="font-logo text-lg font-bold md:text-right">{item.price}</p>
+              </li>
             );
           })}
-        </Stagger>
-        <div className="mt-10">
-          <CTAButton href="/services" variant="secondary">
-            View all services <ArrowRight className="h-4 w-4" aria-hidden />
-          </CTAButton>
-        </div>
+        </ul>
+        <p className="mt-6 text-sm text-muted">Starting prices. A written quote is the offer.</p>
       </Section>
 
-      <Section muted>
-        <SectionHeader
-          eyebrow="Why TMC"
-          title="Premium engineering with business leverage"
-          description="We combine product craft, AI fluency, and reliable delivery so your team ships smarter — not just faster."
-        />
-        <Stagger className="grid gap-5 md:grid-cols-2">
-          {whyChooseUs.map((item) => (
-            <StaggerItem key={item.title}>
-              <GlassCard className="h-full">
-                <h3 className="font-heading text-lg font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-muted">{item.text}</p>
-              </GlassCard>
-            </StaggerItem>
+      <Section muted className="py-20 md:py-28">
+        <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Process</p>
+        <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-tight md:text-4xl">Brief, quote, build, launch</h2>
+        <ol className="mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+          {processSteps.map((step, index) => (
+            <li key={step.title}>
+              <p className="font-logo text-sm font-semibold tracking-[0.14em] text-brand">0{index + 1}</p>
+              <h3 className="mt-4 text-xl font-bold">{step.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{step.text}</p>
+            </li>
           ))}
-        </Stagger>
+        </ol>
       </Section>
 
-      <Section>
-        <SectionHeader
-          eyebrow="Technology"
-          title="A modern stack for durable products"
-          description="We choose proven tools and keep systems maintainable as you scale."
-          align="center"
+      <section className="relative isolate overflow-hidden bg-navy">
+        <Image
+          src="/images/victoria-falls-rainbow.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-35"
         />
-        <FadeIn>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {techStack.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm"
-              >
-                {item}
-              </span>
-            ))}
+        <div className="absolute inset-0 bg-navy/70" />
+        <Container className="relative py-20 md:py-28">
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-white/50 uppercase">TMC Tech Solutions</p>
+          <h2 className="mt-4 max-w-xl text-3xl font-bold text-white md:text-5xl">Send the brief. We send a price.</h2>
+          <p className="mt-4 max-w-lg text-base leading-8 text-white/70">{company.responseTime} No account required.</p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <CTAButton href="/contact" size="lg">
+              Contact the studio <ArrowRight className="h-4 w-4" aria-hidden />
+            </CTAButton>
+            <CTAButton href="/book" variant="onPhotoGhost" size="lg">
+              Pay a deposit
+            </CTAButton>
           </div>
-        </FadeIn>
-      </Section>
-
-      <Section>
-        <SectionHeader
-          eyebrow="Testimonials"
-          title="Teams that trust our craft"
-          description="A sample of the outcomes we aim to deliver for founders and operators."
-        />
-        <Stagger className="grid gap-5 lg:grid-cols-3">
-          {testimonials.map((item) => (
-            <StaggerItem key={item.name}>
-              <GlassCard className="h-full">
-                <p className="text-sm leading-7 text-foreground">&ldquo;{item.quote}&rdquo;</p>
-                <div className="mt-6 border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{item.name}</p>
-                  <p className="text-sm text-muted">{item.role}</p>
-                </div>
-              </GlassCard>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
-
-      <Section dark>
-        <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_auto]">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.14em] text-blue-300 uppercase">Next step</p>
-            <h2 className="mt-3 max-w-2xl font-heading text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Ready to build with AI and modern software?
-            </h2>
-            <p className="mt-4 max-w-xl text-slate-200">
-              Tell us about your product, automation goals, or platform idea — we’ll map a clear path to ship.
-            </p>
-            <ul className="mt-6 space-y-2 text-sm text-slate-200">
-              {["Discovery call", "Technical proposal", "Scoped delivery"].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-blue-300" aria-hidden />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <CTAButton href="/contact" variant="onDark" size="lg">
-            Book a consultation
-          </CTAButton>
-        </div>
-      </Section>
+        </Container>
+      </section>
     </>
   );
 }

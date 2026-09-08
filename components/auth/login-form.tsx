@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -51,9 +50,6 @@ export function LoginForm() {
           <Button className="w-full" variant="cta" disabled={isPending}>
             {isPending ? "Signing in..." : "Sign in"}
           </Button>
-          <p className="text-center text-sm text-muted">
-            New customer? <Link href="/signup" className="font-semibold text-foreground">Create an account</Link>
-          </p>
         </form>
       </CardContent>
     </Card>

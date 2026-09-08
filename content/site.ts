@@ -4,21 +4,41 @@ export const company = {
   email: "info@tmctechsolutions.com",
   tagline: "Websites, payments, and systems that take bookings and get you paid.",
   mission:
-    "We build professional websites, connect payment gateways, and set up SEO and GEO for lodges, operators, and growing businesses — from Victoria Falls, working across Southern Africa.",
+    "We design and build professional websites, connect international payment gateways, and set up SEO and GEO for operators, lodges, and companies that sell to guests worldwide — from Victoria Falls.",
   vision:
-    "Local companies should take cards, EcoCash, and international payments on sites that load fast, rank properly, and do not depend on a WordPress plugin stack.",
+    "A business that takes international cards and local rails on a fast site should not have to rebuild every two years.",
   location: "Victoria Falls, Zimbabwe",
-  serviceArea: "Southern Africa and international tourism brands",
-  responseTime: "We reply within one working day with a scoped next step.",
+  serviceArea: "Clients in Africa, Europe, the UK, and further afield. Invoices in USD.",
+  responseTime: "We reply within one working day (CAT, UTC+2), wherever you are.",
+  workingHours: "Central Africa Time. Calls arranged for UK, EU, US, and African hours.",
   mapsEmbedUrl: ""
 } as const;
 
 export const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/tourism", label: "Tourism" },
+  { href: "/book", label: "Book" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" }
+] as const;
+
+export const clients = [
+  {
+    name: "Masuku Adventure Safaris",
+    href: "https://www.masukusafaris.com",
+    logo: "/clients/masuku-logo.png",
+    width: 324,
+    height: 248,
+    summary: "Safari packages and Victoria Falls itineraries."
+  },
+  {
+    name: "Awande African Expeditions",
+    href: "https://awandeafricanexpeditions.com",
+    logo: "/clients/awande-logo.png",
+    width: 340,
+    height: 203,
+    summary: "Game drives and walking safaris in Zambezi National Park."
+  }
 ] as const;
 
 export const websitePackages = [
@@ -80,36 +100,69 @@ export const websitePackages = [
   }
 ] as const;
 
-export const paymentGateways = [
+export const bookingDeposits = [
   {
-    name: "Paynow",
-    price: "$1,600",
-    detail: "Zimbabwe cards, EcoCash, and OneMoney — the default for local guests."
+    slug: "slot",
+    name: "Hold a start date",
+    amountCents: 150000,
+    detail: "$1,500 deposit, applied to the quoted project."
   },
+  {
+    slug: "presence",
+    name: "Presence website",
+    amountCents: 120000,
+    detail: "50% of $2,400 to start the five-page site."
+  },
+  {
+    slug: "business",
+    name: "Business website",
+    amountCents: 290000,
+    detail: "50% of $5,800. Most teams start here."
+  },
+  {
+    slug: "bookings",
+    name: "Bookings & payments",
+    amountCents: 490000,
+    detail: "50% of $9,800 for a site that takes deposits."
+  },
+  {
+    slug: "tourism",
+    name: "Tourism system",
+    amountCents: 270000,
+    detail: "Deposit against a lodge, activity, or operator system."
+  }
+] as const;
+
+export const paymentGateways = [
   {
     name: "Stripe",
     price: "$1,400",
-    detail: "International cards. Best for overseas guests and USD invoices."
+    detail: "Visa, Mastercard, and Apple Pay for overseas guests and USD invoices."
   },
   {
     name: "PayPal",
     price: "$1,200",
-    detail: "Familiar checkout for international FIT and tour-operator deposits."
+    detail: "The checkout international travellers already trust for deposits."
   },
   {
     name: "Flutterwave",
     price: "$1,500",
-    detail: "Regional African cards and mobile money in one integration."
+    detail: "African cards and mobile money in one integration."
   },
   {
     name: "PayFast",
     price: "$1,300",
-    detail: "South African cards and instant EFT for SA-sourced bookings."
+    detail: "South African cards and instant EFT."
+  },
+  {
+    name: "Paynow",
+    price: "$1,600",
+    detail: "Zimbabwe cards, EcoCash, and OneMoney for guests already on the ground."
   },
   {
     name: "Multi-gateway checkout",
     price: "From $2,800",
-    detail: "Let the guest pick local mobile money or an international card."
+    detail: "International card and local mobile money on the same booking."
   }
 ] as const;
 
@@ -255,16 +308,16 @@ export const whyChooseUs = [
     text: "Cheap WordPress sites get rebuilt in 18 months. We publish real starting prices so serious buyers can plan."
   },
   {
-    title: "Payments that work here",
-    text: "Paynow and EcoCash for local guests. Stripe or PayPal for the overseas booking. Wired properly, not a plugin screenshot."
+    title: "Payments that work for international guests",
+    text: "Stripe and PayPal for overseas cards. Local rails where they matter. Wired into the booking, not dropped in as a plugin screenshot."
   },
   {
     title: "Found, not just launched",
     text: "SEO and GEO are setup work, not a blog package. We do not sell content creation."
   },
   {
-    title: "Built in Victoria Falls",
-    text: "We understand lodges, operators, and the season. The work is professional enough to sit next to an international brand."
+    title: "Based in Victoria Falls, built for worldwide buyers",
+    text: "The photography is the place. The work is scoped, invoiced in USD, and written so a UK or EU operator can sign it."
   }
 ] as const;
 
@@ -308,9 +361,34 @@ export const budgetBands = [
   "Not sure yet"
 ] as const;
 
-export const socialLinks = [{ href: "https://www.youtube.com/", label: "YouTube" }] as const;
+export const faq = [
+  {
+    question: "Can I pay a deposit now?",
+    answer:
+      "Yes. Use Book — Paynow takes EcoCash, OneMoney, and cards. No account. The deposit is applied to the quoted project."
+  },
+  {
+    question: "Do I need an account to enquire?",
+    answer:
+      "No. Send a brief on the contact page or email us. Login is only for the TMC team and existing hosting work — not for new clients."
+  },
+  {
+    question: "Are the prices on the site what I will pay?",
+    answer:
+      "They are starting prices in USD so you can budget. The written quote is the offer. Merchant fees from Stripe, PayPal, or a local gateway are theirs, not ours."
+  },
+  {
+    question: "Do you write content or post on social?",
+    answer:
+      "No. We build the site, the payments, and the search setup. You supply the words, photos, and offers — or we scope that separately."
+  },
+  {
+    question: "Can you work with a client outside Zimbabwe?",
+    answer:
+      "Yes. Invoices are in USD. Calls are arranged for UK, EU, US, and African hours. The studio is in Victoria Falls; the work is remote-first."
+  }
+] as const;
 
-/** @deprecated Kept so older imports do not break during the catalogue rewrite. */
 export const services = websitePackages.map((item) => ({
   slug: item.slug,
   title: item.name,

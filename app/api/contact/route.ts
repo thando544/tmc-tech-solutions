@@ -25,9 +25,16 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from,
       to,
-      subject: `Hosting enquiry from ${body.name}`,
+      subject: `Project brief from ${body.name}`,
       replyTo: body.email,
-      text: body.message
+      text: [
+        body.message,
+        "",
+        `Business: ${body.company || "—"}`,
+        `Need: ${body.interest || "—"}`,
+        `Budget: ${body.budget || "—"}`,
+        `From: ${body.name} <${body.email}>`
+      ].join("\n")
     });
 
     return NextResponse.json({ ok: true });
