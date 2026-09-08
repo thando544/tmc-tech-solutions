@@ -25,6 +25,8 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /login
 Disallow: /signup
+Disallow: /quotation
+Disallow: /quotation/
 Disallow: /api/
 Allow: /api/health
 Allow: /api/contact

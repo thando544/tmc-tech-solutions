@@ -3,10 +3,13 @@ import { GlassCard } from "@/components/marketing/glass-card";
 import { PageIntro, Section } from "@/components/marketing/section";
 import { company } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "API docs",
-  description: `Machine-readable APIs and agent discovery for ${company.name}.`
-};
+  description: `Machine-readable APIs and agent discovery for ${company.name}.`,
+  path: "/docs/api"
+});
 
 export default function ApiDocsPage() {
   return (

@@ -224,11 +224,78 @@ export const integrationServices = [
   }
 ] as const;
 
+export const tourismLayers = [
+  {
+    slug: "website",
+    index: "01",
+    title: "Website",
+    price: "From $2,400",
+    href: "/services#websites",
+    text: "The guest-facing site: packages, itineraries, fleet, and gallery. Fast, mobile, SEO and GEO. Not a template with a sunset stock photo."
+  },
+  {
+    slug: "operations",
+    index: "02",
+    title: "Operations",
+    price: "From $2,500",
+    href: "#operations",
+    text: "Boats, rooms, vehicles, and dates in one calendar. Slot limits so the desk cannot sell the same 16:00 sailing twice."
+  },
+  {
+    slug: "payments",
+    index: "03",
+    title: "Payments",
+    price: "From $1,200",
+    href: "#payments",
+    text: "Stripe and PayPal for overseas cards. Paynow for EcoCash, OneMoney, and local cards. Wired into the booking, not dropped in as a plugin."
+  },
+  {
+    slug: "whatsapp",
+    index: "04",
+    title: "WhatsApp",
+    price: "From $2,800",
+    href: "#whatsapp",
+    text: "Booking received, pickup time, and weather cancels on WhatsApp. Email is backup."
+  }
+] as const;
+
+export const bookingJourney = [
+  {
+    index: "01",
+    title: "Guest picks a date",
+    text: "Cruise, room, activity, or transfer. Remaining seats or rooms come from the operations calendar, not a static price page."
+  },
+  {
+    index: "02",
+    title: "Deposit is paid",
+    text: "Paynow, Stripe, or both. Card numbers stay on the gateway. The office is notified when the money actually lands."
+  },
+  {
+    index: "03",
+    title: "WhatsApp confirmation",
+    text: "Guest and desk get the same facts: date, boat or room, pickup, what is paid."
+  },
+  {
+    index: "04",
+    title: "Calendar updates",
+    text: "Capacity drops. The next enquiry cannot take a seat that is already sold."
+  }
+] as const;
+
 export const tourismProducts = [
+  {
+    slug: "boat-cruise",
+    name: "Boat and cruise operations",
+    price: "From $2,500",
+    layer: "operations",
+    detail:
+      "Guest site, cruise catalogue, enquiry, WhatsApp, and capacity rules so a sailing is not sold twice. Next.js public site plus operations logic for boats, departure slots, and remaining seats."
+  },
   {
     slug: "lodge-booking",
     name: "Lodge and hotel booking engine",
     price: "From $8,500",
+    layer: "operations",
     detail:
       "Room types, seasonal rates, deposits, and a calendar your front desk can trust. Pays through Paynow, Stripe, or both."
   },
@@ -236,6 +303,7 @@ export const tourismProducts = [
     slug: "tour-quotes",
     name: "Tour operator quote and itinerary",
     price: "From $6,500",
+    layer: "operations",
     detail:
       "Build a multi-day itinerary, send a branded quote, take a deposit, and lock the dates."
   },
@@ -243,6 +311,7 @@ export const tourismProducts = [
     slug: "activity-desk",
     name: "Activity and adventure booking",
     price: "From $5,800",
+    layer: "operations",
     detail:
       "Rafting, transfers, sunset cruises, and slot limits so you stop double-booking boats and vehicles."
   },
@@ -250,6 +319,7 @@ export const tourismProducts = [
     slug: "agent-portal",
     name: "Travel agent and commission portal",
     price: "From $7,200",
+    layer: "operations",
     detail:
       "Agents log in, book on net or commission rates, and see what they are owed."
   },
@@ -257,6 +327,7 @@ export const tourismProducts = [
     slug: "transfers",
     name: "Airport transfer and driver dispatch",
     price: "From $5,400",
+    layer: "operations",
     detail:
       "Flight times, vehicle assignment, and driver updates. Useful for lodges and meet-and-greet desks."
   },
@@ -264,22 +335,25 @@ export const tourismProducts = [
     slug: "multi-property",
     name: "Multi-property calendar",
     price: "From $9,200",
+    layer: "operations",
     detail:
       "One operator, several lodges or camps, one availability picture."
-  },
-  {
-    slug: "guest-alerts",
-    name: "Guest WhatsApp confirmations",
-    price: "From $2,800",
-    detail:
-      "Booking, pickup, and activity reminders on WhatsApp instead of a mailbox nobody checks."
   },
   {
     slug: "occupancy",
     name: "Occupancy and revenue dashboard",
     price: "From $4,600",
+    layer: "operations",
     detail:
       "Tonight’s rooms, next week’s activities, and what has actually been paid."
+  },
+  {
+    slug: "guest-alerts",
+    name: "Guest WhatsApp confirmations",
+    price: "From $2,800",
+    layer: "whatsapp",
+    detail:
+      "Booking, pickup, and activity reminders on WhatsApp instead of a mailbox nobody checks."
   }
 ] as const;
 
@@ -348,6 +422,7 @@ export const contactInterests = [
   "Speed optimisation",
   "Leave WordPress",
   "Tourism system",
+  "Boat / cruise operations",
   "AI integration",
   "Something else"
 ] as const;
@@ -366,6 +441,11 @@ export const faq = [
     question: "Can I pay a deposit now?",
     answer:
       "Yes. Use Book — Paynow takes EcoCash, OneMoney, and cards. No account. The deposit is applied to the quoted project."
+  },
+  {
+    question: "Why did Paynow say the email must match the merchant address?",
+    answer:
+      "The Paynow integration is still in test mode. Test keys only accept the email registered on the Paynow merchant account. Switch the integration to live in the Paynow dashboard, put the live ID and key in the server env, then guests can pay with their own email."
   },
   {
     question: "Do I need an account to enquire?",

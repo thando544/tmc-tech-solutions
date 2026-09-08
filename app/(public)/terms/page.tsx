@@ -1,10 +1,13 @@
 import { LegalPage } from "@/components/marketing/legal-page";
 import { company } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Terms",
-  description: `Terms for quoting and delivering work with ${company.name}.`
-};
+  description: `Terms for quoting and delivering work with ${company.name}.`,
+  path: "/terms"
+});
 
 export default function TermsPage() {
   return (

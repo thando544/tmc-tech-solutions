@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LoaderCircle } from "lucide-react";
 import { CTAButton } from "@/components/marketing/cta-button";
 import { formatMoney } from "@/lib/utils";
 
@@ -54,11 +55,12 @@ export function BookingReturn() {
 
   if (error) {
     return (
-      <div className="max-w-lg">
-        <h1 className="text-3xl font-bold">Payment not found</h1>
-        <p className="mt-4 text-muted">{error}</p>
+      <div className="mx-auto max-w-lg border border-border bg-white p-8 md:p-10">
+        <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Paynow</p>
+        <h1 className="mt-3 text-3xl font-bold">Payment not found</h1>
+        <p className="mt-4 leading-7 text-muted">{error}</p>
         <div className="mt-8">
-          <CTAButton href="/book">Try again</CTAButton>
+          <CTAButton href="/book">Back to Book</CTAButton>
         </div>
       </div>
     );
@@ -66,9 +68,13 @@ export function BookingReturn() {
 
   if (!data) {
     return (
-      <div className="max-w-lg">
-        <h1 className="text-3xl font-bold">Checking Paynow…</h1>
-        <p className="mt-4 text-muted">Do not close this page. We are confirming the deposit.</p>
+      <div className="mx-auto max-w-lg border border-border bg-white p-8 md:p-10">
+        <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Paynow</p>
+        <h1 className="mt-3 flex items-center gap-3 text-3xl font-bold">
+          <LoaderCircle className="h-7 w-7 animate-spin text-brand" aria-hidden />
+          Confirming payment
+        </h1>
+        <p className="mt-4 leading-7 text-muted">Stay on this page. We are checking Paynow for your deposit.</p>
       </div>
     );
   }
@@ -76,26 +82,26 @@ export function BookingReturn() {
   const paid = data.status === "paid";
 
   return (
-    <div className="max-w-lg">
-      <p className="text-xs font-bold tracking-[0.16em] text-brand uppercase">{paid ? "Paid" : "Pending"}</p>
+    <div className="mx-auto max-w-lg border border-border bg-white p-8 md:p-10">
+      <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">{paid ? "Paid" : "Pending"}</p>
       <h1 className="mt-3 text-3xl font-bold">{paid ? "Deposit received" : "Waiting for Paynow"}</h1>
-      <p className="mt-4 text-muted">
+      <p className="mt-4 leading-7 text-muted">
         {paid
           ? "We will email you within one working day with next steps."
-          : "If you just paid, this page will update. If you cancelled, you can start again."}
+          : "If you just paid, this page will update. If you cancelled on Paynow, you can start again."}
       </p>
-      <dl className="mt-8 space-y-3 border border-border bg-white p-5 text-sm">
+      <dl className="mt-8 space-y-3 border-t border-border pt-6 text-sm">
         <div className="flex justify-between gap-4">
           <dt className="text-muted">Reference</dt>
           <dd className="font-semibold">{data.reference}</dd>
         </div>
         <div className="flex justify-between gap-4">
           <dt className="text-muted">Work</dt>
-          <dd className="font-semibold">{data.serviceName}</dd>
+          <dd className="text-right font-semibold">{data.serviceName}</dd>
         </div>
         <div className="flex justify-between gap-4">
           <dt className="text-muted">Amount</dt>
-          <dd className="font-semibold">{formatMoney(data.amountCents, data.currency)}</dd>
+          <dd className="font-logo text-lg font-bold">{formatMoney(data.amountCents, data.currency)}</dd>
         </div>
       </dl>
       <div className="mt-8 flex flex-wrap gap-3">

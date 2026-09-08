@@ -75,6 +75,7 @@ export const config = {
     "/about",
     "/services",
     "/tourism",
+    "/book",
     "/contact",
     "/privacy",
     "/cookies",

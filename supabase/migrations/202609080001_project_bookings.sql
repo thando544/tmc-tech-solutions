@@ -1,5 +1,3 @@
--- Anonymous Paynow deposits / project bookings. Service role only.
-
 create table if not exists public.project_bookings (
   id uuid primary key default gen_random_uuid(),
   reference text not null unique,

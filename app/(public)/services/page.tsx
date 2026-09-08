@@ -11,11 +11,14 @@ import {
   websitePackages
 } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Services and prices",
   description:
-    "Website packages, payment gateway integration, SEO and GEO setup, speed work, and WordPress migrations from TMC Tech Solutions in Victoria Falls."
-};
+    "Website packages, payment gateway integration, SEO and GEO setup, speed work, and WordPress migrations from TMC Tech Solutions in Victoria Falls.",
+  path: "/services"
+});
 
 export default function ServicesPage() {
   return (

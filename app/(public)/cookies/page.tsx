@@ -1,17 +1,20 @@
 import { LegalPage } from "@/components/marketing/legal-page";
 import { company } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Cookie policy",
-  description: `How ${company.name} uses cookies on tmctechsolutions.com.`
-};
+  description: `How ${company.name} uses cookies on tmctechsolutions.com.`,
+  path: "/cookies"
+});
 
 export default function CookiesPage() {
   return (
     <LegalPage title="Cookie policy" updated="8 September 2026">
       <p>
-        This site uses a small number of cookies so it can work and so we can remember your choice. We do not use
-        advertising cookies and we do not sell browsing data.
+        This site uses a small number of cookies so it can work, remember your choice, and measure visits from Google
+        Ads. We do not sell browsing data.
       </p>
 
       <h2>Essential cookies</h2>
@@ -26,10 +29,15 @@ export default function CookiesPage() {
         that choice so the banner does not return on every visit.
       </p>
 
-      <h2>What we do not use</h2>
+      <h2>Google tag (Analytics and Ads)</h2>
       <p>
-        We do not place advertising or retargeting cookies. If we add a privacy-respecting analytics tool later, this
-        page will name it and the banner will ask again.
+        We load Google’s tag (gtag.js, measurement ID G-794EHGSX3D) on every page. It is the same tag Google Ads uses
+        to count visits, Smart campaign performance, and later conversion events. Google may set cookies such as{" "}
+        <strong>_ga</strong>. See{" "}
+        <a href="https://policies.google.com/privacy" rel="noreferrer">
+          Google’s privacy policy
+        </a>
+        .
       </p>
 
       <h2>Your choice</h2>

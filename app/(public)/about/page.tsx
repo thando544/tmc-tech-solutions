@@ -5,17 +5,21 @@ import { GlassCard } from "@/components/marketing/glass-card";
 import { PageIntro, Section, SectionHeader } from "@/components/marketing/section";
 import { company, values } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "About",
-  description: `TMC Tech Solutions is a Victoria Falls studio that builds websites, payment integrations, and tourism systems for international clients.`
-};
+  description:
+    "TMC Tech Solutions is a Victoria Falls studio that builds websites, payment integrations, and tourism systems for international clients.",
+  path: "/about"
+});
 
 export default function AboutPage() {
   return (
     <>
       <PageIntro eyebrow="About" title="TMC Tech Solutions" description={company.mission} />
 
-      <section className="relative h-[240px] border-b border-border md:h-[380px]">
+      <section className="relative h-60 border-b border-border md:h-95">
         <Image
           src="/images/victoria-falls-gorge.jpg"
           alt="The Zambezi gorge below Victoria Falls"

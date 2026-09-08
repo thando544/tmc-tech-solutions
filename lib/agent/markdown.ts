@@ -1,4 +1,4 @@
-import { company, setupPackages, tourismProducts, values, websitePackages, whyChooseUs } from "@/content/site";
+import { bookingDeposits, company, setupPackages, tourismProducts, values, websitePackages, whyChooseUs } from "@/content/site";
 
 export function markdownForPath(pathname: string): string | null {
   if (pathname === "/") {
@@ -62,6 +62,19 @@ ${company.responseTime}
 Send a project brief via POST /api/contact with JSON: \`{ "name", "email", "message" }\`. Optional: company, interest, budget.
 
 You do not need an account to enquire. Login is for the TMC team only.
+`;
+  }
+
+  if (pathname === "/book") {
+    return `# Book a start date
+
+Pay a USD project deposit with ${company.name} via Paynow. EcoCash, OneMoney, or card. Card details are entered on Paynow, never on this website.
+
+Deposits:
+${bookingDeposits.map((item) => `- ${item.name}: $${(item.amountCents / 100).toLocaleString("en-US")}`).join("\n")}
+
+Book: ${company.domain}/book
+Quote first: ${company.domain}/contact
 `;
   }
 

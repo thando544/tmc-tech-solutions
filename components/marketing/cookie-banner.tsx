@@ -26,8 +26,8 @@ export function CookieBanner() {
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-surface/95 p-4 backdrop-blur-md md:p-5">
       <div className="container-shell flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="max-w-2xl text-sm leading-6 text-muted">
-          We use essential cookies to run this site and remember this choice. There are no advertising cookies. Read
-          the{" "}
+          We use essential cookies to run this site, and Google’s tag (Analytics and Ads measurement) to see which
+          pages and ads work. Read the{" "}
           <Link href="/cookies" className="text-foreground underline underline-offset-4">
             cookie policy
           </Link>{" "}

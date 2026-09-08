@@ -7,11 +7,13 @@ import { ClientsSection } from "@/components/marketing/clients-section";
 import { Container } from "@/components/marketing/container";
 import { Section } from "@/components/marketing/section";
 import { company, processSteps, websitePackages } from "@/content/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Websites, payments, and tourism systems",
-  description: company.mission
-};
+  description: company.mission,
+  path: "/"
+});
 
 const practices = [
   {
@@ -32,7 +34,7 @@ const practices = [
     href: "/tourism",
     index: "03",
     title: "Tourism systems",
-    text: "Lodge calendars, tour quotes, activity desks, agent commissions, and transfers for operators who sell this landscape.",
+    text: "Boat capacity, lodge calendars, tour quotes, activity desks, agent commissions, and transfers — plus the payments and WhatsApp that sit on top.",
     price: "From $5,400"
   }
 ] as const;

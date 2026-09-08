@@ -48,7 +48,7 @@ export async function initiatePaynowCheckout(input: {
 
   const response = await paynow.send(payment);
   if (!response?.success || !response.redirectUrl || !response.pollUrl) {
-    throw new Error(response?.error || "Paynow did not return a checkout URL.");
+    throw new Error(mapPaynowError(response?.error) || "Paynow did not return a checkout URL.");
   }
 
   return {
@@ -75,4 +75,12 @@ export function parsePaynowUpdate(body: string) {
 
 export function isPaidStatus(status: string | undefined) {
   return String(status ?? "").toLowerCase() === "paid";
+}
+
+function mapPaynowError(error?: string) {
+  const text = String(error ?? "");
+  if (/test mode/i.test(text) && /authemail/i.test(text)) {
+    return "Paynow is in test mode. Use the merchant email registered on that Paynow account, or switch the integration to live and update PAYNOW_INTEGRATION_ID and PAYNOW_INTEGRATION_KEY.";
+  }
+  return text;
 }

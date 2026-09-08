@@ -115,7 +115,7 @@ export default function BoatCruiseQuotationPage() {
 
       <header className="flex flex-col gap-6 border-b border-border pb-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-4">
-          <LogoMark className="h-[72px] w-[72px] sm:h-[88px] sm:w-[88px]" />
+          <LogoMark className="h-[72px] w-[72px] sm:h-22w-[88px]" />
           <div>
             <p className="font-logo text-[22px] font-bold tracking-[0.04em]">TMC</p>
             <p className="mt-1 font-logo text-[11px] font-semibold tracking-[0.14em] text-brand">Tech Solutions</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
+import { GoogleTag } from "@/components/analytics/google-tag";
 import { QueryProvider } from "@/components/query/query-provider";
 import { WebMcpProvider } from "@/components/webmcp-provider";
 import { company } from "@/content/site";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body>
+        <GoogleTag />
         <QueryProvider>
           <WebMcpProvider />
           {children}

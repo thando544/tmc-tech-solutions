@@ -3,10 +3,15 @@ import { LoginForm } from "@/components/auth/login-form";
 import { Suspense } from "react";
 import Link from "next/link";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Staff sign in",
-  robots: { index: false, follow: false }
-};
+  description: "Staff sign in for TMC Tech Solutions. Clients do not need an account.",
+  path: "/login",
+  index: false,
+  canonicalPath: "/"
+});
 
 export default function LoginPage() {
   return (

@@ -1,10 +1,13 @@
 import { LegalPage } from "@/components/marketing/legal-page";
 import { company } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Privacy policy",
-  description: `How ${company.name} collects and uses personal information when you enquire or become a client.`
-};
+  description: `How ${company.name} collects and uses personal information when you enquire or become a client.`,
+  path: "/privacy"
+});
 
 export default function PrivacyPage() {
   return (
@@ -26,6 +29,10 @@ export default function PrivacyPage() {
         <li>Contact form and email: name, email, business name, project type, budget band, and your message.</li>
         <li>Client work: contracts, invoices, site credentials you choose to share, and project files.</li>
         <li>Technical: standard server logs (IP address, browser, pages requested) for security and uptime.</li>
+        <li>
+          Analytics: pages viewed and traffic source via Google’s tag, used for site performance and Google Ads
+          measurement.
+        </li>
         <li>Cookie preference, if you use the banner on this site.</li>
       </ul>
       <p>
@@ -42,8 +49,9 @@ export default function PrivacyPage() {
 
       <h2>Who we share it with</h2>
       <p>
-        Hosting and email providers that run this website and our inbox. We do not sell contact lists. We do not run
-        advertising networks on this site.
+        Hosting and email providers that run this website and our inbox. Google receives page-view data through the
+        Google tag (Analytics / Ads measurement ID G-794EHGSX3D) so we can see which ads and pages work. We do not
+        sell contact lists.
       </p>
 
       <h2>How long we keep it</h2>

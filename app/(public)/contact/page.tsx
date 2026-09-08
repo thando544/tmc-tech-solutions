@@ -5,10 +5,13 @@ import { GlassCard } from "@/components/marketing/glass-card";
 import { PageIntro, Section } from "@/components/marketing/section";
 import { company, faq, processSteps } from "@/content/site";
 
-export const metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
   title: "Contact",
-  description: `Request a quote from ${company.name}. ${company.responseTime}`
-};
+  description: `Request a quote from ${company.name}. ${company.responseTime}`,
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (
