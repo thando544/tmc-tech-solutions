@@ -38,6 +38,14 @@ export const clients = [
     width: 340,
     height: 203,
     summary: "Game drives and walking safaris in Zambezi National Park."
+  },
+  {
+    name: "Culture Vault",
+    href: "https://culturevolt.tmctechsolutions.com",
+    logo: "/clients/culture-vault-logo.png",
+    width: 1000,
+    height: 280,
+    summary: "Streetwear shop in Bulawayo — EcoCash checkout, pickup at HNS, nationwide delivery."
   }
 ] as const;
 

@@ -20,7 +20,8 @@ const footerColumns = [
       { href: "/services#setup", label: "SEO, GEO & speed" },
       { href: "/tourism", label: "Tourism systems" },
       { href: "https://www.masukusafaris.com", label: "Masuku Safaris" },
-      { href: "https://awandeafricanexpeditions.com", label: "Awande Expeditions" }
+      { href: "https://awandeafricanexpeditions.com", label: "Awande Expeditions" },
+      { href: "https://culturevolt.tmctechsolutions.com", label: "Culture Vault" }
     ]
   },
   {

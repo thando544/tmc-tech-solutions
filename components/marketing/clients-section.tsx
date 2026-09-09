@@ -10,13 +10,13 @@ export function ClientsSection() {
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Work</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Operators we have built for</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Companies we have built for</h2>
           </div>
           <p className="max-w-sm text-sm leading-7 text-muted">
             Live sites. Click through to the work.
           </p>
         </div>
-        <ul className="mt-12 grid gap-4 md:grid-cols-2">
+        <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {clients.map((client) => (
             <li key={client.href}>
               <a
@@ -31,7 +31,7 @@ export function ClientsSection() {
                     alt={`${client.name} logo`}
                     width={client.width}
                     height={client.height}
-                    className="h-auto w-full max-w-[280px] object-contain"
+                    className="h-auto w-full max-w-[320px] object-contain"
                   />
                 </div>
                 <div className="flex items-start justify-between gap-4 border-t border-border p-5">
