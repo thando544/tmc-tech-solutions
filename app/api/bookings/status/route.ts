@@ -22,7 +22,8 @@ export async function GET(request: NextRequest) {
         status: booking.status,
         serviceName: booking.serviceName,
         amountCents: booking.amountCents,
-        currency: booking.currency
+        currency: booking.currency,
+        instructions: booking.paynowInstructions
       });
     }
 
@@ -44,7 +45,8 @@ export async function GET(request: NextRequest) {
       serviceName: current.serviceName,
       amountCents: current.amountCents,
       currency: current.currency,
-      paynowStatus: poll.status
+      paynowStatus: poll.status,
+      instructions: current.paynowInstructions
     });
   } catch (error) {
     return apiError(error);

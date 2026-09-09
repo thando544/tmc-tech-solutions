@@ -51,12 +51,26 @@ export function BookingForm() {
               notes: String(data.get("notes") || "")
             })
           });
-          const result = (await response.json()) as { error?: string; redirectUrl?: string };
-          if (!response.ok || !result.redirectUrl) {
+          const result = (await response.json()) as {
+            error?: string;
+            redirectUrl?: string;
+            reference?: string;
+            instructions?: string;
+            method?: string;
+          };
+          if (!response.ok) {
             setError(result.error ?? "Paynow could not start this payment. Try again or email us.");
             return;
           }
-          window.location.assign(result.redirectUrl);
+          if (result.redirectUrl) {
+            window.location.assign(result.redirectUrl);
+            return;
+          }
+          if (result.reference) {
+            window.location.assign(`/book/return?reference=${encodeURIComponent(result.reference)}`);
+            return;
+          }
+          setError("Paynow could not start this payment. Try again or email us.");
         });
       }}
     >
@@ -161,8 +175,9 @@ export function BookingForm() {
             <Input id="email" name="email" type="email" autoComplete="email" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone</Label>
-            <Input id="phone" name="phone" autoComplete="tel" placeholder="07… for EcoCash" />
+            <Label htmlFor="phone">Phone (EcoCash)</Label>
+            <Input id="phone" name="phone" autoComplete="tel" required placeholder="078… or 077…" />
+            <p className="text-xs text-muted">077 or 078 sends the EcoCash prompt. Otherwise we open Paynow checkout.</p>
           </div>
           <div className="space-y-2">
             <Label htmlFor="company">Business</Label>
@@ -186,7 +201,7 @@ export function BookingForm() {
             </p>
           </div>
           <Button type="submit" variant="cta" size="lg" className="h-12 w-full sm:w-auto" disabled={isPending}>
-            {isPending ? "Opening Paynow..." : "Continue to Paynow"}
+            {isPending ? "Opening Paynow..." : "Pay with Paynow / EcoCash"}
           </Button>
         </div>
         {error ? <p className="mt-4 text-sm font-medium text-error">{error}</p> : null}

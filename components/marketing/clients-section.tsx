@@ -16,7 +16,7 @@ export function ClientsSection() {
             Live sites. Click through to the work.
           </p>
         </div>
-        <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {clients.map((client) => (
             <li key={client.href}>
               <a

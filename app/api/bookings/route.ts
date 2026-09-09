@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
     const checkout = await initiatePaynowCheckout({
       reference,
       email: body.email,
+      phone: body.phone,
       description: `${deposit.name} — ${reference}`,
       amount,
       resultUrl: urls.resultUrl,
@@ -43,7 +44,8 @@ export async function POST(request: NextRequest) {
       notes: body.notes?.trim() || null,
       paynowPollUrl: checkout.pollUrl,
       paynowReference: null,
-      paynowStatus: "created",
+      paynowStatus: checkout.method === "web" ? "created" : "awaiting_mobile",
+      paynowInstructions: checkout.instructions ?? null,
       paidAt: null,
       createdAt: new Date().toISOString()
     };
@@ -54,7 +56,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       ok: true,
       reference,
-      redirectUrl: checkout.redirectUrl
+      redirectUrl: checkout.redirectUrl,
+      instructions: checkout.instructions,
+      method: checkout.method
     });
   } catch (error) {
     return apiError(error);

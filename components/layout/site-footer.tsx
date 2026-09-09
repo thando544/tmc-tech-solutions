@@ -21,7 +21,8 @@ const footerColumns = [
       { href: "/tourism", label: "Tourism systems" },
       { href: "https://www.masukusafaris.com", label: "Masuku Safaris" },
       { href: "https://awandeafricanexpeditions.com", label: "Awande Expeditions" },
-      { href: "https://culturevolt.tmctechsolutions.com", label: "Culture Vault" }
+      { href: "https://culturevolt.tmctechsolutions.com", label: "Culture Vault" },
+      { href: "https://zambezitigerfishing.vercel.app", label: "Zambezi Tiger Adventures" }
     ]
   },
   {

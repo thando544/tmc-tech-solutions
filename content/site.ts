@@ -46,6 +46,14 @@ export const clients = [
     width: 1000,
     height: 280,
     summary: "Streetwear shop in Bulawayo — EcoCash checkout, pickup at HNS, nationwide delivery."
+  },
+  {
+    name: "Zambezi Tiger Adventures",
+    href: "https://zambezitigerfishing.vercel.app",
+    logo: "/clients/zambezi-tiger-logo.png",
+    width: 800,
+    height: 381,
+    summary: "Guided tiger fishing on the Upper Zambezi and ensuite stays at Mwenje Guest House, Victoria Falls."
   }
 ] as const;
 

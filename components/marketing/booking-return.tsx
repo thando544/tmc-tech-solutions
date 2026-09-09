@@ -12,6 +12,7 @@ type Status = {
   serviceName: string;
   amountCents: number;
   currency: string;
+  instructions?: string | null;
 };
 
 export function BookingReturn() {
@@ -88,7 +89,8 @@ export function BookingReturn() {
       <p className="mt-4 leading-7 text-muted">
         {paid
           ? "We will email you within one working day with next steps."
-          : "If you just paid, this page will update. If you cancelled on Paynow, you can start again."}
+          : data.instructions ||
+            "If you just paid, this page will update. If you cancelled on Paynow, you can start again."}
       </p>
       <dl className="mt-8 space-y-3 border-t border-border pt-6 text-sm">
         <div className="flex justify-between gap-4">

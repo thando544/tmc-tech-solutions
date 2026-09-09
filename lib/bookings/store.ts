@@ -19,6 +19,7 @@ export type BookingRecord = {
   paynowPollUrl: string | null;
   paynowReference: string | null;
   paynowStatus: string | null;
+  paynowInstructions: string | null;
   paidAt: string | null;
   createdAt: string;
 };
@@ -70,6 +71,7 @@ function fromRow(row: Record<string, unknown>): BookingRecord {
     paynowPollUrl: (row.paynow_poll_url as string | null) ?? null,
     paynowReference: (row.paynow_reference as string | null) ?? null,
     paynowStatus: (row.paynow_status as string | null) ?? null,
+    paynowInstructions: (row.paynow_instructions as string | null) ?? null,
     paidAt: (row.paid_at as string | null) ?? null,
     createdAt: String(row.created_at)
   };
