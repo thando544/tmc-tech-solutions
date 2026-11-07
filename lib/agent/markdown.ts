@@ -16,6 +16,7 @@ ${whyChooseUs.map((item) => `- **${item.title}**: ${item.text}`).join("\n")}
 
 ## Contact
 Email: ${company.email}
+Phone / WhatsApp: ${company.phoneDisplay}
 Location: ${company.location}
 Website: ${company.domain}
 `;
@@ -56,6 +57,7 @@ ${tourismProducts.map((item) => `### ${item.name}\n\n${item.detail}\n`).join("\n
     return `# Contact ${company.name}
 
 Email: ${company.email}
+Phone / WhatsApp: ${company.phoneDisplay} (${company.whatsapp})
 Location: ${company.location}
 ${company.responseTime}
 

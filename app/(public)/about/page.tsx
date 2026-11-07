@@ -55,8 +55,20 @@ export default function AboutPage() {
         />
         <div className="max-w-3xl space-y-5 text-base leading-8 text-muted">
           <p>
-            The studio is here. The mark is black and blue. Quotes are in USD. The work is written so a buyer in the UK
-            or EU can sign it without visiting first.
+            The studio works from Victoria Falls with lodges, operators, and companies across Africa, the UK, and Europe.
+            Quotes are in USD and written so a buyer can sign without visiting first.
+          </p>
+          <p>
+            Every project is run by the TMC team under one written scope: one point of contact, weekly check-ins, and a
+            handover your staff can use. Reach us at{" "}
+            <a href={`mailto:${company.email}`} className="font-semibold text-brand">
+              {company.email}
+            </a>{" "}
+            or{" "}
+            <a href={`tel:${company.phone}`} className="font-semibold text-brand">
+              {company.phoneDisplay}
+            </a>
+            .
           </p>
         </div>
       </Section>

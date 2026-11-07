@@ -9,6 +9,7 @@ const jsonLd = {
   name: company.name,
   url: company.domain,
   email: company.email,
+  telephone: company.phone,
   description: company.mission,
   areaServed: ["Africa", "Europe", "United Kingdom", "United States"],
   currenciesAccepted: "USD",

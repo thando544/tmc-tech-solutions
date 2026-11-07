@@ -121,14 +121,6 @@ export default function TourismPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-6 border border-border bg-secondary-background p-5 text-sm leading-7 text-muted">
-          <p className="font-semibold text-foreground">Paynow test vs live</p>
-          <p className="mt-2">
-            A test integration only accepts the merchant’s registered Paynow email. Real guests need a{" "}
-            <strong className="text-foreground">live</strong> Integration ID and key. Until you switch that in the
-            Paynow dashboard, checkout will reject any other address.
-          </p>
-        </div>
       </Section>
 
       <Section dark>

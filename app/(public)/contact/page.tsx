@@ -1,4 +1,4 @@
-import { Clock3, Globe, Mail, WalletCards } from "lucide-react";
+import { Clock3, Globe, Mail, MessageCircle, WalletCards } from "lucide-react";
 import { MarketingContactForm } from "@/components/marketing/contact-form";
 import { CTAButton } from "@/components/marketing/cta-button";
 import { GlassCard } from "@/components/marketing/glass-card";
@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact"
         title="Send a brief. We send a scoped price."
-        description="Email or the form. We reply with what we would build, in USD, and what it costs."
+        description="Use the form, email, or WhatsApp. We reply with what we would build, in USD, and what it costs."
       />
 
       <Section>
@@ -57,6 +57,25 @@ export default function ContactPage() {
             </GlassCard>
             <GlassCard>
               <div className="flex gap-3">
+                <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                <div>
+                  <p className="font-bold">Phone and WhatsApp</p>
+                  <a href={`tel:${company.phone}`} className="mt-1 block text-sm text-muted hover:text-brand">
+                    {company.phoneDisplay}
+                  </a>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <CTAButton href={company.whatsapp} size="sm">
+                      Message on WhatsApp
+                    </CTAButton>
+                    <CTAButton href={`tel:${company.phone}`} variant="secondary" size="sm">
+                      Call
+                    </CTAButton>
+                  </div>
+                </div>
+              </div>
+            </GlassCard>
+            <GlassCard>
+              <div className="flex gap-3">
                 <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
                 <div>
                   <p className="font-bold">Response</p>
@@ -85,8 +104,8 @@ export default function ContactPage() {
                     Book a start date with Paynow — EcoCash, OneMoney, or card. No account.
                   </p>
                   <div className="mt-3">
-                    <CTAButton href="/book" size="sm">
-                      Go to Paynow checkout
+                    <CTAButton href="/book" variant="secondary" size="sm">
+                      Pay a deposit
                     </CTAButton>
                   </div>
                 </div>

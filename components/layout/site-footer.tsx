@@ -44,9 +44,23 @@ export function SiteFooter() {
             <Logo onDark />
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/70">{company.tagline}</p>
             <p className="mt-4 text-sm text-white/55">{company.location}</p>
-            <a href={`mailto:${company.email}`} className="mt-2 inline-block text-sm text-white hover:text-brand">
-              {company.email}
-            </a>
+            <ul className="mt-3 space-y-1.5 text-sm">
+              <li>
+                <a href={`mailto:${company.email}`} className="text-white hover:text-brand">
+                  {company.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${company.phone}`} className="text-white hover:text-brand">
+                  {company.phoneDisplay}
+                </a>
+                <span className="text-white/40"> · </span>
+                <a href={company.whatsapp} target="_blank" rel="noreferrer" className="text-white hover:text-brand">
+                  WhatsApp
+                </a>
+              </li>
+            </ul>
+            <p className="mt-3 text-xs text-white/45">{company.workingHours}</p>
           </div>
           <div className="grid gap-8 sm:grid-cols-3">
             {footerColumns.map((column) => (

@@ -31,7 +31,7 @@ export function MarketingContactForm() {
             setStatus("Brief received. We will reply within one working day.");
             form.reset();
           } else {
-            setError("Unable to send. Email info@tmctechsolutions.com directly.");
+            setError("The form could not send. Email info@tmctechsolutions.com or WhatsApp +263 78 032 8658.");
           }
         });
       }}

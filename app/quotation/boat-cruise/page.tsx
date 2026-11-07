@@ -115,7 +115,7 @@ export default function BoatCruiseQuotationPage() {
 
       <header className="flex flex-col gap-6 border-b border-border pb-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-4">
-          <LogoMark className="h-[72px] w-[72px] sm:h-22w-[88px]" />
+          <LogoMark className="h-[72px] w-[72px] sm:h-[88px] sm:w-[88px]" />
           <div>
             <p className="font-logo text-[22px] font-bold tracking-[0.04em]">TMC</p>
             <p className="mt-1 font-logo text-[11px] font-semibold tracking-[0.14em] text-brand">Tech Solutions</p>
@@ -141,6 +141,9 @@ export default function BoatCruiseQuotationPage() {
           <p className="mt-1 text-sm text-muted">{company.tagline}</p>
           <a href={`mailto:${company.email}`} className="mt-2 block text-sm text-brand">
             {company.email}
+          </a>
+          <a href={`tel:${company.phone}`} className="mt-1 block text-sm text-brand">
+            {company.phoneDisplay}
           </a>
           <a href={company.domain} className="mt-1 block text-sm text-brand">
             {company.domain.replace("https://", "")}
@@ -407,7 +410,8 @@ export default function BoatCruiseQuotationPage() {
           <li>This quotation is valid until {quote.validUntil}. After that, reconfirm in writing.</li>
           <li>Invoices in USD. {company.location}.</li>
           <li>
-            Reply to <a href={`mailto:${company.email}`} className="text-brand">{company.email}</a> or see{" "}
+            Reply to <a href={`mailto:${company.email}`} className="text-brand">{company.email}</a>, call or WhatsApp{" "}
+            <a href={`tel:${company.phone}`} className="text-brand">{company.phoneDisplay}</a>, or see{" "}
             <a href={company.domain} className="text-brand">{company.domain.replace("https://", "")}</a>.
           </li>
         </ul>

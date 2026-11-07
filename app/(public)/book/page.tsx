@@ -105,8 +105,11 @@ export default function BookPage() {
                 Deposits are applied to the quoted project. The written quote still governs scope if the work grows.
               </p>
               <p className="mt-4">
-                <strong className="text-foreground">Test vs live.</strong> A Paynow test integration only accepts the
-                merchant’s registered email. Live keys are required before guests can pay with their own address.
+                Trouble paying? Call or WhatsApp{" "}
+                <a href={company.whatsapp} className="font-semibold text-brand" target="_blank" rel="noreferrer">
+                  {company.phoneDisplay}
+                </a>
+                .
               </p>
               <p className="mt-4">
                 Want a price first?{" "}

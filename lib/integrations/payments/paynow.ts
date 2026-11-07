@@ -142,7 +142,7 @@ export function isPaidStatus(status: string | undefined) {
 function mapPaynowError(error?: string) {
   const text = String(error ?? "");
   if (/test mode/i.test(text) && /authemail/i.test(text)) {
-    return "Paynow is in test mode. Use the merchant email registered on that Paynow account, or switch the integration to live and update PAYNOW_INTEGRATION_ID and PAYNOW_INTEGRATION_KEY.";
+    return "Online payment is not available right now. Please call or WhatsApp +263 78 032 8658, or email info@tmctechsolutions.com, and we will send a payment link.";
   }
   return text;
 }

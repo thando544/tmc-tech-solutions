@@ -2,6 +2,9 @@ export const company = {
   name: "TMC Tech Solutions",
   domain: "https://www.tmctechsolutions.com",
   email: "info@tmctechsolutions.com",
+  phone: "+263780328658",
+  phoneDisplay: "+263 78 032 8658",
+  whatsapp: "https://wa.me/263780328658",
   tagline: "Websites, payments, and systems that take bookings and get you paid.",
   mission:
     "We design and build professional websites, connect international payment gateways, and set up SEO and GEO for operators, lodges, and companies that sell to guests worldwide — from Victoria Falls.",
@@ -429,14 +432,14 @@ export const faq = [
       "Yes. Use Book — Paynow takes EcoCash, OneMoney, and cards. No account. The deposit is applied to the quoted project."
   },
   {
-    question: "Why did Paynow say the email must match the merchant address?",
-    answer:
-      "The Paynow integration is still in test mode. Test keys only accept the email registered on the Paynow merchant account. Switch the integration to live in the Paynow dashboard, put the live ID and key in the server env, then guests can pay with their own email."
-  },
-  {
     question: "Do I need an account to enquire?",
     answer:
-      "No. Send a brief on the contact page or email us. Login is only for the TMC team and existing hosting work — not for new clients."
+      "No. Send a brief on the contact page, email us, or message us on WhatsApp. There is nothing to sign up for."
+  },
+  {
+    question: "How soon will you reply?",
+    answer:
+      "Within one working day, Central Africa Time. WhatsApp is usually faster for a quick question; email is best for a full brief."
   },
   {
     question: "How do you price the work?",

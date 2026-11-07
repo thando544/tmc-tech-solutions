@@ -59,7 +59,11 @@ export function BookingForm() {
             method?: string;
           };
           if (!response.ok) {
-            setError(result.error ?? "Paynow could not start this payment. Try again or email us.");
+            setError(
+              response.status >= 500
+                ? "Online payment is not available right now. Call or WhatsApp +263 78 032 8658, or email info@tmctechsolutions.com, and we will send a payment link."
+                : result.error ?? "Paynow could not start this payment. Check your details and try again."
+            );
             return;
           }
           if (result.redirectUrl) {

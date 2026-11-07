@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { CTAButton } from "@/components/marketing/cta-button";
 import { Container } from "@/components/marketing/container";
-import { navLinks } from "@/content/site";
+import { company, navLinks } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -39,7 +39,14 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-6 lg:flex">
+          <a
+            href={`tel:${company.phone}`}
+            className="hidden items-center gap-2 text-[13px] font-medium text-foreground transition hover:text-brand xl:inline-flex"
+          >
+            <Phone className="h-4 w-4 text-brand" aria-hidden />
+            {company.phoneDisplay}
+          </a>
           <CTAButton href="/contact" size="sm">
             Request a quote
           </CTAButton>
@@ -65,10 +72,18 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 border-t border-border pt-4">
+            <div className="mt-3 flex flex-col gap-3 border-t border-border pt-4">
               <CTAButton href="/contact" className="w-full">
                 Request a quote
               </CTAButton>
+              <div className="grid grid-cols-2 gap-3">
+                <CTAButton href={`tel:${company.phone}`} variant="secondary" className="w-full">
+                  Call
+                </CTAButton>
+                <CTAButton href={company.whatsapp} variant="secondary" className="w-full">
+                  WhatsApp
+                </CTAButton>
+              </div>
             </div>
           </Container>
         </div>
