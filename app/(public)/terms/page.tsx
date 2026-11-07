@@ -19,9 +19,9 @@ export default function TermsPage() {
 
       <h2>Quotes</h2>
       <p>
-        Prices on this website are starting prices in USD, not a live cart. A written quote is the offer. Work starts
-        when that quote is accepted and any agreed deposit is paid. Merchant fees charged by Stripe, PayPal, Paynow, or
-        another gateway are theirs, not ours.
+        This website is not a live cart. A written quote in USD is the offer. Work starts when that quote is accepted
+        and any agreed deposit is paid. Merchant fees charged by Stripe, PayPal, Paynow, or another gateway are theirs,
+        not ours.
       </p>
 
       <h2>Delivery</h2>

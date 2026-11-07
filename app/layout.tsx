@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: company.domain,
     siteName: company.name,
     type: "website",
-    images: [{ url: "/images/victoria-falls-hero.jpg", alt: "Victoria Falls from the Zimbabwean side" }]
+    images: [{ url: "/images/victoria-falls-hero.jpg", alt: "Rainbow over Victoria Falls, photographed from the Zimbabwean side" }]
   },
   twitter: {
     card: "summary_large_image",

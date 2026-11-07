@@ -61,7 +61,6 @@ export const websitePackages = [
   {
     slug: "presence",
     name: "Presence",
-    price: "$2,400",
     timeline: "2–3 weeks",
     summary: "A clean 5-page site that looks like a real company, not a template.",
     includes: [
@@ -75,7 +74,6 @@ export const websitePackages = [
   {
     slug: "business",
     name: "Business",
-    price: "$5,800",
     timeline: "4–6 weeks",
     featured: true,
     summary: "The catalogue most established businesses should buy.",
@@ -90,7 +88,6 @@ export const websitePackages = [
   {
     slug: "bookings",
     name: "Bookings & payments",
-    price: "$9,800",
     timeline: "6–8 weeks",
     summary: "For anyone who needs to take a deposit or a full payment online.",
     includes: [
@@ -104,7 +101,6 @@ export const websitePackages = [
   {
     slug: "custom",
     name: "Custom platform",
-    price: "From $18,000",
     timeline: "Scoped",
     summary: "Multi-property, agent portals, or anything with real business rules.",
     includes: [
@@ -121,25 +117,25 @@ export const bookingDeposits = [
     slug: "slot",
     name: "Hold a start date",
     amountCents: 150000,
-    detail: "$1,500 deposit, applied to the quoted project."
+    detail: "Hold a start date. Applied to the quoted project."
   },
   {
     slug: "presence",
     name: "Presence website",
     amountCents: 120000,
-    detail: "50% of $2,400 to start the five-page site."
+    detail: "Deposit to start the five-page site."
   },
   {
     slug: "business",
     name: "Business website",
     amountCents: 290000,
-    detail: "50% of $5,800. Most teams start here."
+    detail: "Deposit to start a Business website. Most teams start here."
   },
   {
     slug: "bookings",
     name: "Bookings & payments",
     amountCents: 490000,
-    detail: "50% of $9,800 for a site that takes deposits."
+    detail: "Deposit to start a site that takes deposits."
   },
   {
     slug: "tourism",
@@ -152,32 +148,26 @@ export const bookingDeposits = [
 export const paymentGateways = [
   {
     name: "Stripe",
-    price: "$1,400",
     detail: "Visa, Mastercard, and Apple Pay for overseas guests and USD invoices."
   },
   {
     name: "PayPal",
-    price: "$1,200",
     detail: "The checkout international travellers already trust for deposits."
   },
   {
     name: "Flutterwave",
-    price: "$1,500",
     detail: "African cards and mobile money in one integration."
   },
   {
     name: "PayFast",
-    price: "$1,300",
     detail: "South African cards and instant EFT."
   },
   {
     name: "Paynow",
-    price: "$1,600",
     detail: "Zimbabwe cards, EcoCash, and OneMoney for guests already on the ground."
   },
   {
     name: "Multi-gateway checkout",
-    price: "From $2,800",
     detail: "International card and local mobile money on the same booking."
   }
 ] as const;
@@ -186,57 +176,50 @@ export const setupPackages = [
   {
     slug: "seo-setup",
     name: "SEO setup",
-    price: "$1,600",
     detail:
       "Technical SEO on an existing site: titles, headings, schema, sitemap, redirects, Search Console, and a keyword map for the pages that should rank."
   },
   {
     slug: "geo-setup",
     name: "GEO setup",
-    price: "$1,200",
     detail:
       "Generative engine optimisation so ChatGPT, Gemini, Perplexity, and AI overviews can cite the business. Not content writing — structure, schema, and machine-readable pages."
   },
   {
     slug: "seo-geo-launch",
     name: "SEO + GEO launch",
-    price: "$2,400",
     detail: "Both setups together when we are launching or rebuilding the site."
   },
   {
     slug: "speed",
     name: "Speed optimisation",
-    price: "$1,100",
     detail: "Images, caching, fonts, and Core Web Vitals on a site that already exists."
   },
   {
     slug: "wp-migration",
     name: "WordPress to custom",
-    price: "From $3,800",
     detail:
       "Move off WordPress without killing rankings: URL map, 301s, content transfer, and a faster stack."
   }
 ] as const;
 
 export const seoRetainers = [
-  { name: "Local", price: "$650 / month", detail: "One location, core pages, monthly technical pass." },
-  { name: "Growth", price: "$1,200 / month", detail: "Competitive terms, GEO monitoring, monthly reporting." },
-  { name: "Portfolio", price: "$2,200 / month", detail: "Several properties or brands under one operator." }
+  { name: "Local", detail: "One location, core pages, monthly technical pass." },
+  { name: "Growth", detail: "Competitive terms, GEO monitoring, monthly reporting." },
+  { name: "Portfolio", detail: "Several properties or brands under one operator." }
 ] as const;
 
 export const integrationServices = [
   {
     slug: "ai-integration",
     name: "AI integration",
-    price: "From $3,200",
     detail:
       "Connect a model to a real workflow: availability, booking questions, invoices, or internal ops. We do not sell content-creation tools or chatbot demos."
   },
   {
     slug: "payments-integration",
     name: "Payment gateway integration",
-    price: "From $1,200",
-    detail: "Add or replace a gateway on a site you already have. Priced per gateway above."
+    detail: "Add or replace a gateway on a site you already have. Quoted per gateway."
   }
 ] as const;
 
@@ -245,7 +228,6 @@ export const tourismLayers = [
     slug: "website",
     index: "01",
     title: "Website",
-    price: "From $2,400",
     href: "/services#websites",
     text: "The guest-facing site: packages, itineraries, fleet, and gallery. Fast, mobile, SEO and GEO. Not a template with a sunset stock photo."
   },
@@ -253,7 +235,6 @@ export const tourismLayers = [
     slug: "operations",
     index: "02",
     title: "Operations",
-    price: "From $2,500",
     href: "#operations",
     text: "Boats, rooms, vehicles, and dates in one calendar. Slot limits so the desk cannot sell the same 16:00 sailing twice."
   },
@@ -261,7 +242,6 @@ export const tourismLayers = [
     slug: "payments",
     index: "03",
     title: "Payments",
-    price: "From $1,200",
     href: "#payments",
     text: "Stripe and PayPal for overseas cards. Paynow for EcoCash, OneMoney, and local cards. Wired into the booking, not dropped in as a plugin."
   },
@@ -269,7 +249,6 @@ export const tourismLayers = [
     slug: "whatsapp",
     index: "04",
     title: "WhatsApp",
-    price: "From $2,800",
     href: "#whatsapp",
     text: "Booking received, pickup time, and weather cancels on WhatsApp. Email is backup."
   }
@@ -302,7 +281,6 @@ export const tourismProducts = [
   {
     slug: "boat-cruise",
     name: "Boat and cruise operations",
-    price: "From $2,500",
     layer: "operations",
     detail:
       "Guest site, cruise catalogue, enquiry, WhatsApp, and capacity rules so a sailing is not sold twice. Next.js public site plus operations logic for boats, departure slots, and remaining seats."
@@ -310,7 +288,6 @@ export const tourismProducts = [
   {
     slug: "lodge-booking",
     name: "Lodge and hotel booking engine",
-    price: "From $8,500",
     layer: "operations",
     detail:
       "Room types, seasonal rates, deposits, and a calendar your front desk can trust. Pays through Paynow, Stripe, or both."
@@ -318,7 +295,6 @@ export const tourismProducts = [
   {
     slug: "tour-quotes",
     name: "Tour operator quote and itinerary",
-    price: "From $6,500",
     layer: "operations",
     detail:
       "Build a multi-day itinerary, send a branded quote, take a deposit, and lock the dates."
@@ -326,7 +302,6 @@ export const tourismProducts = [
   {
     slug: "activity-desk",
     name: "Activity and adventure booking",
-    price: "From $5,800",
     layer: "operations",
     detail:
       "Rafting, transfers, sunset cruises, and slot limits so you stop double-booking boats and vehicles."
@@ -334,7 +309,6 @@ export const tourismProducts = [
   {
     slug: "agent-portal",
     name: "Travel agent and commission portal",
-    price: "From $7,200",
     layer: "operations",
     detail:
       "Agents log in, book on net or commission rates, and see what they are owed."
@@ -342,7 +316,6 @@ export const tourismProducts = [
   {
     slug: "transfers",
     name: "Airport transfer and driver dispatch",
-    price: "From $5,400",
     layer: "operations",
     detail:
       "Flight times, vehicle assignment, and driver updates. Useful for lodges and meet-and-greet desks."
@@ -350,7 +323,6 @@ export const tourismProducts = [
   {
     slug: "multi-property",
     name: "Multi-property calendar",
-    price: "From $9,200",
     layer: "operations",
     detail:
       "One operator, several lodges or camps, one availability picture."
@@ -358,7 +330,6 @@ export const tourismProducts = [
   {
     slug: "occupancy",
     name: "Occupancy and revenue dashboard",
-    price: "From $4,600",
     layer: "operations",
     detail:
       "Tonight’s rooms, next week’s activities, and what has actually been paid."
@@ -366,7 +337,6 @@ export const tourismProducts = [
   {
     slug: "guest-alerts",
     name: "Guest WhatsApp confirmations",
-    price: "From $2,800",
     layer: "whatsapp",
     detail:
       "Booking, pickup, and activity reminders on WhatsApp instead of a mailbox nobody checks."
@@ -394,8 +364,8 @@ export const processSteps = [
 
 export const whyChooseUs = [
   {
-    title: "Priced like a firm, not a weekend job",
-    text: "Cheap WordPress sites get rebuilt in 18 months. We publish real starting prices so serious buyers can plan."
+    title: "Scoped like a firm, not a weekend job",
+    text: "Cheap WordPress sites get rebuilt in 18 months. A written quote is the offer, so a serious buyer can plan."
   },
   {
     title: "Payments that work for international guests",
@@ -469,9 +439,9 @@ export const faq = [
       "No. Send a brief on the contact page or email us. Login is only for the TMC team and existing hosting work — not for new clients."
   },
   {
-    question: "Are the prices on the site what I will pay?",
+    question: "How do you price the work?",
     answer:
-      "They are starting prices in USD so you can budget. The written quote is the offer. Merchant fees from Stripe, PayPal, or a local gateway are theirs, not ours."
+      "We send a written quote in USD after a short brief. That quote is the offer. Merchant fees from Stripe, PayPal, or a local gateway are theirs, not ours."
   },
   {
     question: "Do you write content or post on social?",

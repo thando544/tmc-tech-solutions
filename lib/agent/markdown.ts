@@ -9,7 +9,7 @@ ${company.tagline}
 ${company.mission}
 
 ## Website packages
-${websitePackages.map((item) => `- **${item.name}** (${item.price}): ${item.summary}`).join("\n")}
+${websitePackages.map((item) => `- **${item.name}**: ${item.summary}`).join("\n")}
 
 ## Why TMC
 ${whyChooseUs.map((item) => `- **${item.title}**: ${item.text}`).join("\n")}
@@ -38,17 +38,17 @@ ${values.map((value) => `- **${value.title}**: ${value.text}`).join("\n")}
     return `# Services
 
 ## Websites
-${websitePackages.map((item) => `### ${item.name} — ${item.price}\n\n${item.summary}\n`).join("\n")}
+${websitePackages.map((item) => `### ${item.name}\n\n${item.summary}\n`).join("\n")}
 
 ## Setup
-${setupPackages.map((item) => `### ${item.name} — ${item.price}\n\n${item.detail}\n`).join("\n")}
+${setupPackages.map((item) => `### ${item.name}\n\n${item.detail}\n`).join("\n")}
 `;
   }
 
   if (pathname === "/tourism") {
     return `# Tourism systems
 
-${tourismProducts.map((item) => `### ${item.name} — ${item.price}\n\n${item.detail}\n`).join("\n")}
+${tourismProducts.map((item) => `### ${item.name}\n\n${item.detail}\n`).join("\n")}
 `;
   }
 
@@ -97,7 +97,7 @@ Essential cookies run the site. tmc-cookie-consent stores your banner choice. We
   if (pathname === "/terms") {
     return `# Terms
 
-Quotes on ${company.domain} are starting prices in USD. A written quote is the offer. Full terms: ${company.domain}/terms
+Quotes from ${company.name} are written in USD after a brief. A written quote is the offer. Full terms: ${company.domain}/terms
 `;
   }
 

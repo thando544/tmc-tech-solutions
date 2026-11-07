@@ -20,22 +20,19 @@ const practices = [
     href: "/services#websites",
     index: "01",
     title: "Websites",
-    text: "A site that looks like the business, loads fast, and can be updated without calling us every week.",
-    price: "From $2,400"
+    text: "A site that looks like the business, loads fast, and can be updated without calling us every week."
   },
   {
     href: "/services#payments",
     index: "02",
     title: "Payments",
-    text: "Stripe and PayPal for overseas guests. Paynow, Flutterwave, and PayFast where local rails matter. Wired into the booking — not a plugin screenshot.",
-    price: "From $1,200"
+    text: "Stripe and PayPal for overseas guests. Paynow, Flutterwave, and PayFast where local rails matter. Wired into the booking — not a plugin screenshot."
   },
   {
     href: "/tourism",
     index: "03",
     title: "Tourism systems",
-    text: "Boat capacity, lodge calendars, tour quotes, activity desks, agent commissions, and transfers — plus the payments and WhatsApp that sit on top.",
-    price: "From $5,400"
+    text: "Boat capacity, lodge calendars, tour quotes, activity desks, agent commissions, and transfers — plus the payments and WhatsApp that sit on top."
   }
 ] as const;
 
@@ -67,7 +64,7 @@ export default function HomePage() {
               Request a quote <ArrowRight className="h-4 w-4" aria-hidden />
             </CTAButton>
             <CTAButton href="/services" variant="secondary" size="lg">
-              Starting prices
+              See services
             </CTAButton>
           </div>
         </Container>
@@ -75,7 +72,7 @@ export default function HomePage() {
         <div className="relative h-[52vw] min-h-[280px] max-h-[640px] w-full">
           <Image
             src="/images/victoria-falls-hero.jpg"
-            alt="Victoria Falls from the Zimbabwean side, Mosi-oa-Tunya"
+            alt="Rainbow over Victoria Falls, photographed from the Zimbabwean side"
             fill
             priority
             sizes="100vw"
@@ -128,7 +125,7 @@ export default function HomePage() {
                   <span className="mt-3 block max-w-xl text-sm leading-7 text-muted">{item.text}</span>
                 </span>
                 <span className="flex items-center gap-2 text-sm font-semibold text-foreground md:justify-end">
-                  {item.price}
+                  View
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
                 </span>
               </Link>
@@ -142,7 +139,7 @@ export default function HomePage() {
           <div className="relative min-h-[320px] lg:min-h-[560px]">
             <Image
               src="/images/victoria-falls-gorge.jpg"
-              alt="Victoria Falls seen from the rainforest trail on the Zimbabwean side"
+              alt="The Zambezi gorge below Victoria Falls, seen from the rainforest trail"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-center"
@@ -152,11 +149,11 @@ export default function HomePage() {
             <div className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
               <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Position</p>
               <h2 className="mt-3 max-w-md text-3xl font-bold tracking-tight md:text-4xl">
-                Priced like a firm. Based at the Falls. Built for worldwide buyers.
+                Scoped like a firm. Based at the Falls. Built for worldwide buyers.
               </h2>
               <p className="mt-5 max-w-md text-base leading-8 text-muted">
-                Cheap WordPress sites get rebuilt in eighteen months. We publish real starting prices so a serious
-                buyer can plan. SEO and GEO are setup work, not a blog package. Payments are wired into the booking.
+                Cheap WordPress sites get rebuilt in eighteen months. Send a brief and we reply with a written quote in
+                USD. SEO and GEO are setup work, not a blog package. Payments are wired into the booking.
               </p>
               <div className="mt-8">
                 <CTAButton href="/about" variant="secondary">
@@ -171,11 +168,11 @@ export default function HomePage() {
       <Section className="py-20 md:py-28">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
-            <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Fees</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Website catalogue, in USD</h2>
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-brand uppercase">Catalogue</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Website work we take on</h2>
           </div>
           <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-brand">
-            Full services and prices <ArrowRight className="h-4 w-4" aria-hidden />
+            Full services <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
         <ul className="mt-12 border-t border-border">
@@ -184,7 +181,7 @@ export default function HomePage() {
             return (
               <li
                 key={item.slug}
-                className="grid gap-2 border-b border-border py-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)_auto] md:items-baseline md:gap-8"
+                className="grid gap-2 border-b border-border py-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] md:items-baseline md:gap-8"
               >
                 <div>
                   <p className="text-lg font-bold">{item.name}</p>
@@ -194,12 +191,11 @@ export default function HomePage() {
                   </p>
                 </div>
                 <p className="text-sm leading-7 text-muted">{item.summary}</p>
-                <p className="font-logo text-lg font-bold md:text-right">{item.price}</p>
               </li>
             );
           })}
         </ul>
-        <p className="mt-6 text-sm text-muted">Starting prices. A written quote is the offer.</p>
+        <p className="mt-6 text-sm text-muted">A written quote in USD is the offer.</p>
       </Section>
 
       <Section muted className="py-20 md:py-28">
@@ -219,7 +215,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-navy">
         <Image
           src="/images/victoria-falls-rainbow.jpg"
-          alt="Rainbow over Victoria Falls from the walkway"
+          alt="Victoria Falls Bridge and a rainbow in the spray from the lookout"
           fill
           sizes="100vw"
           className="object-cover opacity-35"

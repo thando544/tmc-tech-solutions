@@ -29,7 +29,7 @@ export default function TourismPage() {
       <section className="relative h-60 border-b border-border md:h-95">
         <Image
           src="/images/victoria-falls-rainbow.jpg"
-          alt="Rainbow over Victoria Falls from the walkway"
+          alt="Victoria Falls Bridge and a rainbow in the spray from the lookout"
           fill
           sizes="100vw"
           className="object-cover object-[center_35%]"
@@ -40,17 +40,14 @@ export default function TourismPage() {
         <SectionHeader
           eyebrow="How the work is stacked"
           title="A site without operations still double-books"
-          description="Pick a layer or take the path. Starting prices in USD. Final quotes follow a short brief."
+          description="Pick a layer or take the path. Final quotes follow a short brief, in USD."
         />
         <div className="grid gap-4 md:grid-cols-2">
           {tourismLayers.map((layer) => (
             <Link key={layer.slug} href={layer.href} className="block">
               <GlassCard hover className="h-full">
                 <p className="text-xs font-bold tracking-[0.16em] text-brand uppercase">{layer.index}</p>
-                <div className="mt-3 flex items-start justify-between gap-4">
-                  <h2 className="text-lg font-bold">{layer.title}</h2>
-                  <p className="shrink-0 font-bold text-brand">{layer.price}</p>
-                </div>
+                <h2 className="mt-3 text-lg font-bold">{layer.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-muted">{layer.text}</p>
               </GlassCard>
             </Link>
@@ -84,10 +81,7 @@ export default function TourismPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {operations.map((item) => (
             <GlassCard key={item.slug} id={item.slug} className="h-full" featured={item.slug === "boat-cruise"}>
-              <div className="flex items-start justify-between gap-4">
-                <h2 className="text-lg font-bold">{item.name}</h2>
-                <p className="shrink-0 font-bold text-brand">{item.price}</p>
-              </div>
+              <h2 className="text-lg font-bold">{item.name}</h2>
               <p className="mt-3 text-sm leading-7 text-muted">{item.detail}</p>
             </GlassCard>
           ))}
@@ -99,10 +93,7 @@ export default function TourismPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {whatsapp.map((item) => (
             <GlassCard key={item.slug} id={item.slug} className="h-full">
-              <div className="flex items-start justify-between gap-4">
-                <h2 className="text-lg font-bold">{item.name}</h2>
-                <p className="shrink-0 font-bold text-brand">{item.price}</p>
-              </div>
+              <h2 className="text-lg font-bold">{item.name}</h2>
               <p className="mt-3 text-sm leading-7 text-muted">{item.detail}</p>
             </GlassCard>
           ))}
@@ -125,9 +116,7 @@ export default function TourismPage() {
         <ul className="grid gap-4 md:grid-cols-2">
           {paymentGateways.map((item) => (
             <li key={item.name} className="border border-border bg-white p-5">
-              <p className="font-bold">
-                {item.name} · <span className="text-brand">{item.price}</span>
-              </p>
+              <p className="font-bold">{item.name}</p>
               <p className="mt-2 text-sm leading-6 text-muted">{item.detail}</p>
             </li>
           ))}

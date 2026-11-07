@@ -6,7 +6,6 @@ import { PageIntro, Section } from "@/components/marketing/section";
 import { bookingDeposits, company } from "@/content/site";
 import { getSiteUrl } from "@/lib/agent/site";
 import { pageMeta } from "@/lib/seo";
-import { formatMoney } from "@/lib/utils";
 
 const description =
   "Pay a USD project deposit to TMC Tech Solutions in Victoria Falls via Paynow. EcoCash, OneMoney, Visa and Mastercard are entered on Paynow — not on this site. No account required.";
@@ -103,8 +102,7 @@ export default function BookPage() {
             </div>
             <div className="border border-border bg-secondary-background p-6 text-sm leading-7 text-muted">
               <p>
-                Starting deposits from {formatMoney(bookingDeposits[0].amountCents)}. The written quote still governs
-                scope if the work grows.
+                Deposits are applied to the quoted project. The written quote still governs scope if the work grows.
               </p>
               <p className="mt-4">
                 <strong className="text-foreground">Test vs live.</strong> A Paynow test integration only accepts the

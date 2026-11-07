@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className="relative h-60 border-b border-border md:h-95">
         <Image
           src="/images/victoria-falls-gorge.jpg"
-          alt="Victoria Falls seen from the rainforest trail on the Zimbabwean side"
+          alt="The Zambezi gorge below Victoria Falls, seen from the rainforest trail"
           fill
           sizes="100vw"
           className="object-cover object-center"

@@ -12,7 +12,6 @@ const jsonLd = {
   description: company.mission,
   areaServed: ["Africa", "Europe", "United Kingdom", "United States"],
   currenciesAccepted: "USD",
-  priceRange: "$$–$$$",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Victoria Falls",
